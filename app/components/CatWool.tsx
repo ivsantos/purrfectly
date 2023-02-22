@@ -285,23 +285,6 @@ export default function CatWool() {
         />
       </g>
       <g
-        id="shadow"
-        style={{
-          transformOrigin: "250px 416.24px",
-        }}
-      >
-        <ellipse
-          cx={250}
-          cy={416.24}
-          rx={193.89}
-          ry={11.32}
-          style={{
-            fill: "#f7b99e",
-            transformOrigin: "250px 416.24px",
-          }}
-        />
-      </g>
-      <g
         id="wool"
         className="animate-floating-wool"
         style={{
