@@ -1,3 +1,4 @@
+import CircledText from "./CircledText";
 import { Link } from "@remix-run/react";
 
 export default function Hero() {
@@ -6,7 +7,13 @@ export default function Hero() {
       <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
         <div className="sm:max-w-lg">
           <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            La diversión de tu mascota a un clic de distancia
+            La diversión de tu mascota a
+            <span className="relative">
+              {" "}
+              <CircledText />
+              un clic
+            </span>{" "}
+            de distancia
           </h1>
           <p className="mt-4 text-xl text-gray-500">
             No compres a ciegas. Sus juguetes, <strong>en vídeo.</strong>
