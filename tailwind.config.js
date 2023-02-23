@@ -13,6 +13,7 @@ module.exports = {
         senary: '#ACA3AA',
         septenary: '#E49467',
         octonary: '#537695',
+        highlight: '#FDC435',
       },
       keyframes: {
         'floating-wool': {

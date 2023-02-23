@@ -1,9 +1,13 @@
 import { Link } from '@remix-run/react';
 
+import HighlightText from './HighlightText';
+
 export default function MainContent() {
   return (
     <section className="mx-auto max-w-4xl rounded-2xl bg-secondary">
-      <h2 className="p-10 text-center text-3xl font-bold">Qué hacemos</h2>
+      <h2 className="relative isolate p-10 text-center text-3xl font-bold">
+        <HighlightText /> Qué hacemos
+      </h2>
       <div className="mx-8 grid grid-cols-what-we-do gap-4 pb-10">
         <Link
           to="#"
