@@ -1,5 +1,4 @@
 import { Tab } from '@headlessui/react';
-import { NavLink } from '@remix-run/react';
 
 const navigation = {
   pages: [
@@ -24,19 +23,20 @@ export default function NavTabs() {
       <div className="h-full border-b border-gray-200">
         <Tab.List className="flex h-full space-x-8 px-4">
           {navigation.pages.map((category) => (
-            <NavLink to={category.href} key={category.name}>
-              <Tab
-                className={({ selected }) =>
-                  `${
-                    selected
-                      ? 'border-indigo-600 text-indigo-600'
-                      : 'border-transparent text-gray-900'
-                  } h-full flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-sm`
-                }
-              >
-                {category.name}
-              </Tab>
-            </NavLink>
+            <Tab
+              as="a"
+              href={category.href}
+              key={category.name}
+              className={({ selected }) =>
+                `${
+                  selected
+                    ? 'border-primary text-primary'
+                    : 'border-transparent text-gray-900'
+                } flex h-full flex-1 items-center whitespace-nowrap border-b-2 py-4 px-1 text-sm`
+              }
+            >
+              {category.name}
+            </Tab>
           ))}
         </Tab.List>
       </div>
