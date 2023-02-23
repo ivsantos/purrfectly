@@ -4,14 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#FDE7DF',
+        background: '#FEF9F6',
         primary: '#D64926',
-        secondary: '#F7B99E',
-        tertiary: '#F5C8B5',
-        quaternary: '#4D272B',
-        quinary: '#ACA3AA',
-        senary: '#E49467',
-        septenary: '#537695',
+        secondary: '#FDE7DF',
+        tertiary: '#F7B99E',
+        quaternary: '#F5C8B5',
+        quinary: '#4D272B',
+        senary: '#ACA3AA',
+        septenary: '#E49467',
+        octonary: '#537695',
       },
       keyframes: {
         'floating-wool': {
