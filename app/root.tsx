@@ -9,6 +9,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 
+import Header from './components/Header';
 import { getUser } from './session.server';
 import tailwindStylesheetUrl from './styles/tailwind.css';
 
@@ -18,7 +19,7 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
-  title: 'Remix Notes',
+  title: 'Purrfectly',
   viewport: 'width=device-width,initial-scale=1',
 });
 
@@ -30,12 +31,13 @@ export async function loader({ request }: LoaderArgs) {
 
 export default function App() {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full bg-background">
       <head>
         <Meta />
         <Links />
       </head>
       <body className="h-full">
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

@@ -1,11 +1,11 @@
-import Header from '~/components/Header';
+import Hero from '~/components/Hero';
 import MainContent from '~/components/MainContent';
 
 export default function Index() {
   return (
-    <div className="bg-background">
-      <Header />
+    <>
+      <Hero />
       <MainContent />
-    </div>
+    </>
   );
 }
