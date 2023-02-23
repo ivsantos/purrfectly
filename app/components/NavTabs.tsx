@@ -3,6 +3,10 @@ import { Tab } from '@headlessui/react';
 const navigation = {
   pages: [
     {
+      name: 'Inicio',
+      href: '#',
+    },
+    {
       name: 'Catálogo',
       href: '#',
     },
