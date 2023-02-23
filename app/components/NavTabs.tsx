@@ -1,49 +1,47 @@
-import { Tab } from '@headlessui/react';
+import { NavLink } from '@remix-run/react';
 
 const navigation = {
   pages: [
     {
       name: 'Inicio',
-      href: '#',
+      href: '/',
     },
     {
       name: 'Catálogo',
-      href: '#',
+      href: '/catalog',
     },
     {
       name: 'En adopción',
-      href: '#',
+      href: '/adopt',
     },
     {
       name: 'Consejos',
-      href: '#',
+      href: '/tips',
     },
   ],
 };
 
 export default function NavTabs() {
   return (
-    <Tab.Group as="div" className="flex h-full items-center">
-      <div className="h-full border-b border-gray-200">
-        <Tab.List className="flex h-full space-x-8 px-4">
-          {navigation.pages.map((category) => (
-            <Tab
-              as="a"
-              href={category.href}
-              key={category.name}
-              className={({ selected }) =>
+    <div className="h-full items-center">
+      <ul className="flex h-full space-x-8 px-4">
+        {navigation.pages.map((category) => (
+          <li key={category.name}>
+            <NavLink
+              to={category.href}
+              className={({ isActive }) =>
                 `${
-                  selected
+                  isActive
                     ? 'border-primary text-primary'
                     : 'border-transparent text-gray-900'
-                } flex h-full flex-1 items-center whitespace-nowrap border-b-2 py-4 px-1 text-sm`
+                } flex h-full items-center whitespace-nowrap border-b-2 py-4 px-1 text-sm`
               }
             >
               {category.name}
-            </Tab>
-          ))}
-        </Tab.List>
-      </div>
-    </Tab.Group>
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
