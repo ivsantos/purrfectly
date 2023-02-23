@@ -26,7 +26,7 @@ module.exports = {
         },
       },
       animation: {
-        'floating-wool': '1.5s infinite linear floating-wool',
+        'floating-wool': '2s infinite linear floating-wool',
       },
     },
   },
