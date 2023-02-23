@@ -28,6 +28,9 @@ module.exports = {
       animation: {
         'floating-wool': '2s infinite linear floating-wool',
       },
+      gridTemplateColumns: {
+        'what-we-do': 'repeat(auto-fill, minmax(200px, 1fr))',
+      },
     },
   },
   plugins: [],
