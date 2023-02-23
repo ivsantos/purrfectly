@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="mt-10">
             <Link
               to="#"
-              className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
+              className="inline-block rounded-md border border-transparent bg-primary py-3 px-8 text-center font-medium text-white active:translate-y-0.5"
             >
               Descubrir
             </Link>
