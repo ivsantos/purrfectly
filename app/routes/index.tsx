@@ -1,13 +1,11 @@
-import Hero from '~/components/Hero';
-import Navbar from '~/components/Navbar';
+import Header from '~/components/Header';
+import MainContent from '~/components/MainContent';
 
 export default function Index() {
   return (
-    <div className="bg-[#FEF9F6]">
-      <header className="relative h-screen overflow-hidden">
-        <Navbar />
-        <Hero />
-      </header>
+    <div className="bg-background">
+      <Header />
+      <MainContent />
     </div>
   );
 }
