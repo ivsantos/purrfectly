@@ -1,19 +1,19 @@
-import { NavLink } from "@remix-run/react";
-import { Tab } from "@headlessui/react";
+import { Tab } from '@headlessui/react';
+import { NavLink } from '@remix-run/react';
 
 const navigation = {
   pages: [
     {
-      name: "Catálogo",
-      href: "#",
+      name: 'Catálogo',
+      href: '#',
     },
     {
-      name: "En adopción",
-      href: "#",
+      name: 'En adopción',
+      href: '#',
     },
     {
-      name: "Consejos",
-      href: "#",
+      name: 'Consejos',
+      href: '#',
     },
   ],
 };
@@ -29,8 +29,8 @@ export default function NavTabs() {
                 className={({ selected }) =>
                   `${
                     selected
-                      ? "border-indigo-600 text-indigo-600"
-                      : "border-transparent text-gray-900"
+                      ? 'border-indigo-600 text-indigo-600'
+                      : 'border-transparent text-gray-900'
                   } h-full flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-sm`
                 }
               >

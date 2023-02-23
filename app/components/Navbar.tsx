@@ -1,6 +1,6 @@
-import Logo from "./Logo";
-import NavActions from "./NavActions";
-import NavTabs from "./NavTabs";
+import Logo from './Logo';
+import NavActions from './NavActions';
+import NavTabs from './NavTabs';
 
 export default function Navbar() {
   return (

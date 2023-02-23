@@ -1,5 +1,5 @@
-import { Link } from "@remix-run/react";
-import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from '@heroicons/react/24/outline';
+import { Link } from '@remix-run/react';
 
 export default function Cart() {
   return (

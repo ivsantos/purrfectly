@@ -1,8 +1,8 @@
-import { Form, Link } from "@remix-run/react";
+import { Form, Link } from '@remix-run/react';
+import { useOptionalUser } from '~/utils';
 
-import Cart from "./Cart";
-import Search from "./Search";
-import { useOptionalUser } from "~/utils";
+import Cart from './Cart';
+import Search from './Search';
 
 export default function NavActions() {
   const user = useOptionalUser();

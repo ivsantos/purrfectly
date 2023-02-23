@@ -1,6 +1,7 @@
-import CatWool from "./CatWool";
-import CircledText from "./CircledText";
-import { Link } from "@remix-run/react";
+import { Link } from '@remix-run/react';
+
+import CatWool from './CatWool';
+import CircledText from './CircledText';
 
 export default function Hero() {
   return (
@@ -10,10 +11,10 @@ export default function Hero() {
           <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             La diversión de tu mascota a
             <span className="relative">
-              {" "}
+              {' '}
               <CircledText />
               un clic
-            </span>{" "}
+            </span>{' '}
             de distancia
           </h1>
           <p className="mt-4 text-xl text-gray-500">
