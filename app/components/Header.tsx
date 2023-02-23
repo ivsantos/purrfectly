@@ -1,11 +1,9 @@
-import Hero from './Hero';
 import Navbar from './Navbar';
 
 export default function Header() {
   return (
-    <header className="relative h-screen overflow-hidden">
+    <header className="sticky top-0 z-10">
       <Navbar />
-      <Hero />
     </header>
   );
 }

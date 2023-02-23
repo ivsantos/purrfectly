@@ -5,7 +5,7 @@ import CircledText from './CircledText';
 
 export default function Hero() {
   return (
-    <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40">
+    <div className="h-[calc(100vh-64px)] pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="sm:max-w-lg">
           <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
