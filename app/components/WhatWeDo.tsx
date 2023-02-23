@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react';
 
 import HighlightText from './HighlightText';
 
-export default function MainContent() {
+export default function WhatWeDo() {
   return (
     <section className="mx-auto max-w-4xl rounded-2xl bg-secondary">
       <h2 className="relative isolate p-10 text-center text-3xl font-bold">
