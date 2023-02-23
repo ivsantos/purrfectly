@@ -24,7 +24,7 @@ export default function Hero() {
         <div>
           <div className="mt-10">
             <Link
-              to="#"
+              to="/catalog"
               className="inline-block rounded-md border border-transparent bg-primary py-3 px-8 text-center font-medium text-white active:translate-y-0.5"
             >
               Descubrir
