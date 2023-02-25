@@ -31,6 +31,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         'what-we-do': 'repeat(auto-fill, minmax(200px, 1fr))',
+        featured: 'repeat(auto-fit, minmax(200px, 1fr))',
       },
     },
   },
