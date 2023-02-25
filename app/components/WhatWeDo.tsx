@@ -1,13 +1,10 @@
 import { Link } from '@remix-run/react';
 
-import HighlightText from './HighlightText';
+import Card from './Card';
 
 export default function WhatWeDo() {
   return (
-    <section className="mx-auto max-w-4xl rounded-2xl bg-secondary">
-      <h2 className="relative isolate p-10 text-center text-3xl font-bold">
-        <HighlightText /> Qué hacemos
-      </h2>
+    <Card title="Qué hacemos">
       <div className="mx-8 grid grid-cols-what-we-do gap-4 pb-10">
         <Link
           to="/catalog"
@@ -43,6 +40,6 @@ export default function WhatWeDo() {
           </p>
         </Link>
       </div>
-    </section>
+    </Card>
   );
 }

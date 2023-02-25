@@ -1,4 +1,4 @@
-import HighlightText from './HighlightText';
+import Card from './Card';
 import VideoPlayer from './VideoPlayer';
 
 const options = {
@@ -52,10 +52,7 @@ const options = {
 
 export default function Featured() {
   return (
-    <section className="mx-auto max-w-5xl rounded-2xl bg-secondary">
-      <h2 className="relative isolate p-10 text-center text-3xl font-bold">
-        <HighlightText /> Destacados
-      </h2>
+    <Card title="Destacados">
       <div className="mx-8 grid grid-cols-featured gap-4 pb-10">
         <VideoPlayer
           id="ginger_kitten_playing_fgbxaf"
@@ -68,6 +65,6 @@ export default function Featured() {
           options={options}
         />
       </div>
-    </section>
+    </Card>
   );
 }

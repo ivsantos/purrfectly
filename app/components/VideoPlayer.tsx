@@ -68,8 +68,6 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
 
   // This is a hack to get the parent of the video element from the cloudinary player,
   // since it creates a div wrapper around the video element.
-  // if (typeof document === 'undefined') return null;
-  // const videoParent = document.querySelector(`#${id}`);
   const videoParent = videoRef.current?.parentElement;
 
   return (
