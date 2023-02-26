@@ -22,14 +22,20 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
     function create() {
       if (!videoRef.current) return;
 
-      const video = cloudinary?.videoPlayer(id, {
-        cloud_name: window.ENV.CLOUDINARY_CLOUD_NAME,
-        muted: true,
-        controls: true,
-        fluid: true,
-      });
-      video.source(source, options);
-      setLoaded(true);
+      // Hack to avoid Cloudinary library from throwing when
+      // the video element is the wrapper it creates instead of the
+      // actual video element.
+      const videoElement = document.querySelector(`#${id}`);
+      if (videoElement && videoElement.tagName === 'VIDEO') {
+        const video = cloudinary?.videoPlayer(id, {
+          cloud_name: window.ENV.CLOUDINARY_CLOUD_NAME,
+          muted: true,
+          controls: true,
+          fluid: true,
+        });
+        video.source(source, options);
+        setLoaded(true);
+      }
     }
 
     async function loadCloudinary() {
@@ -67,7 +73,7 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
     };
   }, [loaded, id]);
 
-  // This is a hack to get the parent of the video element from the cloudinary player,
+  // Hack to get the parent of the video element from the cloudinary player,
   // since it creates a div wrapper around the video element.
   const videoParent = videoRef.current?.parentElement;
 
