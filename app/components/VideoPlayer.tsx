@@ -4,24 +4,19 @@ import { createPortal } from 'react-dom';
 
 import VideoProducts from './VideoProducts';
 
-declare global {
-  interface Window {
-    ENV: Record<string, string>;
-  }
-}
-
 let cloudinary: typeof window.cloudinary;
 
 interface VideoPlayerProps {
   id: string;
   source: string;
-  options: SourceOptions & { shoppable: Object };
+  options: SourceOptions & { shoppable: ProductList };
 }
 
 const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [ended, setEnded] = useState(false);
+  const { shoppable } = options || {};
 
   useEffect(() => {
     function create() {
@@ -55,14 +50,20 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
 
     const video = videoRef.current;
 
-    function endHandler() {
-      setEnded(true);
+    function endedHandler() {
+      setEnded((prev) => !prev);
     }
 
-    video?.addEventListener('ended', endHandler);
+    function playHandler() {
+      setEnded(false);
+    }
+
+    video?.addEventListener('ended', endedHandler);
+    video?.addEventListener('play', playHandler);
 
     return () => {
-      video?.removeEventListener('ended', endHandler);
+      video?.removeEventListener('ended', endedHandler);
+      video?.removeEventListener('play', playHandler);
     };
   }, [loaded, id]);
 
@@ -72,12 +73,17 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
 
   return (
     <>
-      {ended && videoParent && createPortal(<VideoProducts />, videoParent)}
+      {ended &&
+        videoParent &&
+        createPortal(
+          <VideoProducts products={shoppable?.products} />,
+          videoParent,
+        )}
       <video
         id={id}
         ref={videoRef}
-        className={`cld-video-player cld-fluid ${
-          ended ? 'absolute top-0 blur-sm' : ''
+        className={`cld-video-player cld-fluid absolute top-0 ${
+          ended ? 'blur-sm' : ''
         }`}
       />
     </>

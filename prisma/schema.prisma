@@ -40,7 +40,8 @@ model Note {
 model Video {
   id    String @id @default(cuid())
   publicId String
-  shoppable Json
+  category String
+  options Json @default("{}")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

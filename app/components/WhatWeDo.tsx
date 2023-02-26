@@ -5,7 +5,7 @@ import Card from './Card';
 export default function WhatWeDo() {
   return (
     <Card title="Qué hacemos">
-      <div className="mx-8 grid grid-cols-what-we-do gap-4 pb-10">
+      <div className="mx-8 grid grid-cols-card gap-4 pb-10">
         <Link
           to="/catalog"
           className="flex flex-col gap-4 rounded-2xl bg-white text-center transition-colors duration-200 hover:bg-gradient-to-b hover:from-red-200 hover:to-red-600 hover:text-white"

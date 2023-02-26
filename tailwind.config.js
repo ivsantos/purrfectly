@@ -30,8 +30,7 @@ module.exports = {
         'floating-wool': '2s infinite linear floating-wool',
       },
       gridTemplateColumns: {
-        'what-we-do': 'repeat(auto-fill, minmax(200px, 1fr))',
-        featured: 'repeat(auto-fit, minmax(200px, 1fr))',
+        card: 'repeat(auto-fit, minmax(200px, 1fr))',
       },
     },
   },
