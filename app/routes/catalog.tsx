@@ -1,4 +1,5 @@
 import type { Image, Product } from '@prisma/client';
+import EmphasizeText from '~/components/EmphasizeText';
 import Groceries from '~/components/Groceries';
 import Productlist from '~/components/Productlist';
 import VideoCarousel from '~/components/VideoCarousel';
@@ -39,7 +40,10 @@ export default function Catalog() {
             </h1>
             <p>Descubre lo que tu mascota necesita</p>
             <p>
-              a partir de la <strong>experiencia</strong> de otras
+              a partir de la{' '}
+              <span className="relative">
+                <EmphasizeText /> experiencia de otras
+              </span>
             </p>
           </div>
           <Groceries />
