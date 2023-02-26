@@ -52,7 +52,8 @@ model Product {
   name String
   price Float
   description String
-  image Image[]
+  category String
+  images Image[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

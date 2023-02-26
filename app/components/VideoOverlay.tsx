@@ -1,10 +1,10 @@
 import { Link } from '@remix-run/react';
 
-interface VideoProductsProps {
+interface VideoOverlayProps {
   products: ShoppableProduct[];
 }
 
-export default function VideoProducts({ products }: VideoProductsProps) {
+export default function VideoOverlay({ products }: VideoOverlayProps) {
   return (
     <div
       className="vjs-modal-dialog"
@@ -21,7 +21,7 @@ export default function VideoProducts({ products }: VideoProductsProps) {
               <Link
                 key={product.productId}
                 className="cld-spbl-item base-color-bg accent-color-text"
-                to={`/catalog/product/${product.productId}`}
+                to={product.onClick.args.url}
               >
                 <span aria-hidden="true" className="vjs-icon-placeholder" />
                 <span className="vjs-control-text" aria-live="polite" />

@@ -23,6 +23,6 @@ interface Args {
   url: string;
 }
 
-interface ProductList {
+interface ShoppableProductList {
   products: ShoppableProduct[];
 }

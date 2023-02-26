@@ -2,14 +2,14 @@ import type { SourceOptions } from 'cloudinary-video-player/types/video-player';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import VideoProducts from './VideoProducts';
+import VideoOverlay from './VideoOverlay';
 
 let cloudinary: typeof window.cloudinary;
 
 interface VideoPlayerProps {
   id: string;
   source: string;
-  options: SourceOptions & { shoppable: ProductList };
+  options: SourceOptions & { shoppable: ShoppableProductList };
 }
 
 const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
@@ -82,7 +82,7 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
       {ended &&
         videoParent &&
         createPortal(
-          <VideoProducts products={shoppable?.products} />,
+          <VideoOverlay products={shoppable?.products} />,
           videoParent,
         )}
       <video
