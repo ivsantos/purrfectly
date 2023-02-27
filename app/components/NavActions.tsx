@@ -1,7 +1,7 @@
 import { Form, Link } from '@remix-run/react';
 import { useOptionalUser } from '~/utils';
 
-import Cart from './Cart';
+import CartPreview from './CartPreview';
 import Search from './Search';
 
 export default function NavActions() {
@@ -45,7 +45,7 @@ export default function NavActions() {
         </>
       )}
       <Search />
-      <Cart />
+      <CartPreview />
     </div>
   );
 }
