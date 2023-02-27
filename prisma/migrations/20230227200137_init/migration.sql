@@ -30,7 +30,8 @@ CREATE TABLE "Note" (
 CREATE TABLE "Video" (
     "id" TEXT NOT NULL,
     "publicId" TEXT NOT NULL,
-    "shoppable" JSONB NOT NULL,
+    "category" TEXT NOT NULL,
+    "options" JSONB NOT NULL DEFAULT '{}',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -43,6 +44,7 @@ CREATE TABLE "Product" (
     "name" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "description" TEXT NOT NULL,
+    "category" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
