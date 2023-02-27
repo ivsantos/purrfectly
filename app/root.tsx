@@ -56,7 +56,7 @@ export default function App() {
           </>
         )}
       </head>
-      <body className="h-full">
+      <body>
         <Header />
         <Outlet />
         <ScrollRestoration />

@@ -54,6 +54,7 @@ model Product {
   price Float
   description String
   category String
+  rating Float
   images Image[]
 
   createdAt DateTime @default(now())

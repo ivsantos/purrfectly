@@ -8,6 +8,7 @@ export async function createProducts(prisma: PrismaClient) {
         'Este juguete para gatos cuenta con una variedad de plumas salvajes y divertidas que despiertan el instinto depredador de tu felino. Además, las plumas son reales y emiten un sonido de papel crepitante al ser tocadas, lo que lo hace aún más atractivo para tu mascota.',
       price: 1.99,
       category: 'Cañas y plumeros',
+      rating: 4,
       images: {
         create: [
           {
@@ -30,6 +31,7 @@ export async function createProducts(prisma: PrismaClient) {
         'Este práctico rascador para gatos ha sido diseñado para adaptarse perfectamente a la esquina de cualquier habitación, permitiendo a tu mascota afilar sus uñas de manera segura y sin dañar tus muebles. Con una superficie de sisal resistente y duradera, este rascador ofrece a tu felino un lugar específico donde satisfacer su necesidad natural de rascar, mientras que su tamaño compacto lo hace ideal para hogares con espacio limitado. Además, su color neutro lo hace fácil de integrar en cualquier decoración.',
       price: 1.99,
       category: 'Rascadores',
+      rating: 4,
       images: {
         create: [
           {
@@ -52,6 +54,7 @@ export async function createProducts(prisma: PrismaClient) {
         'Este adorable peluche de patito es perfecto para que tu mascota juegue y se divierta. Fabricado con materiales suaves y resistentes, es seguro para que lo muerdan, lo abracen o lo acurruquen, ofreciéndole horas de entretenimiento y diversión.',
       price: 1.99,
       category: 'Peluches',
+      rating: 4,
       images: {
         create: [
           {
@@ -74,6 +77,7 @@ export async function createProducts(prisma: PrismaClient) {
         'Este juguete para gatos emite sonidos y luces que imitan a un pez eléctrico, despertando el instinto cazador de tu mascota. Con un diseño realista y una textura suave, es seguro para que tu gato lo muerda y lo agarre, lo que lo convierte en el juguete perfecto para satisfacer sus necesidades de juego y ejercicio.',
       price: 1.99,
       category: 'Juguetes para gatos',
+      rating: 4,
       images: {
         create: [
           {
@@ -96,6 +100,7 @@ export async function createProducts(prisma: PrismaClient) {
         'Este divertido juguete interactivo para gatos ofrece una experiencia de juego única y emocionante para tu mascota. Con diferentes niveles y elementos que estimulan su curiosidad y habilidades de caza, este juguete ayuda a mantener a tu gato activo y entretenido, lo que a su vez ayuda a prevenir el aburrimiento y la obesidad.',
       price: 1.99,
       category: 'Juguetes interactivos',
+      rating: 4,
       images: {
         create: [
           {
@@ -118,6 +123,7 @@ export async function createProducts(prisma: PrismaClient) {
         'Esta caña de juguete para gatos cuenta con un ratón de peluche colgado de una cuerda, lo que permite a tu mascota perseguir, saltar y cazar su presa imaginaria. Con una longitud y diseño perfectos para que tanto tú como tu gato puedan jugar juntos, es un juguete ideal para fortalecer el vínculo entre dueño y mascota.',
       price: 1.99,
       category: 'Cañas y plumeros',
+      rating: 4,
       images: {
         create: [
           {
@@ -140,6 +146,7 @@ export async function createProducts(prisma: PrismaClient) {
         'Este rascador de poste para gatos ofrece un lugar seguro y apropiado para que tu mascota afilar sus uñas y satisfacer su necesidad natural de rascar. Con una altura perfecta para que tu gato estire todo su cuerpo, este rascador ayuda a mantener sus garras saludables y evita que dañe tus muebles. Además, su superficie de sisal resistente y duradera lo hace perfecto para que tu gato lo use durante años.',
       price: 1.99,
       category: 'Rascadores',
+      rating: 4,
       images: {
         create: [
           {
