@@ -1,14 +1,28 @@
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTypedLoaderData } from 'remix-typedjson';
 
 import Cart from './Cart';
 
-export default function CartPreview() {
-  const [open, setOpen] = useState(false);
+type LoaderData = {
+  cartItemsCount: number;
+};
 
-  const handleToggleCart = () => {
-    setOpen(!open);
-  };
+export default function CartPreview() {
+  const { cartItemsCount } = useTypedLoaderData<LoaderData>();
+  const [open, setOpen] = useState(false);
+  const count = useRef(cartItemsCount);
+
+  const handleToggleCart = useCallback(() => {
+    setOpen((prevOpen) => !prevOpen);
+  }, []);
+
+  useEffect(() => {
+    if (cartItemsCount !== count.current) {
+      count.current = cartItemsCount;
+      handleToggleCart();
+    }
+  }, [cartItemsCount, handleToggleCart]);
 
   return (
     <>
@@ -22,7 +36,7 @@ export default function CartPreview() {
             aria-hidden="true"
           />
           <span className="ml-1 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-            0
+            {cartItemsCount}
           </span>
           <span className="sr-only">artículos en la bolsa, ver bolsa</span>
         </button>

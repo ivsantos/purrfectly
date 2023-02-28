@@ -1,6 +1,7 @@
 import { createCookieSessionStorage, redirect } from '@remix-run/node';
 import type { User } from '~/models/user.server';
 import { getUserById } from '~/models/user.server';
+import bcrypt from 'bcryptjs';
 import invariant from 'tiny-invariant';
 
 invariant(process.env.SESSION_SECRET, 'SESSION_SECRET must be set');
@@ -23,9 +24,7 @@ export async function getSession(request: Request) {
   return sessionStorage.getSession(cookie);
 }
 
-export async function getUserId(
-  request: Request,
-): Promise<User['id'] | undefined> {
+export async function getUserId(request: Request): Promise<User['id']> {
   const session = await getSession(request);
   const userId = session.get(USER_SESSION_KEY);
   return userId;
@@ -38,18 +37,11 @@ export async function getUser(request: Request) {
   const user = await getUserById(userId);
   if (user) return user;
 
-  throw await logout(request);
+  return null;
 }
 
-export async function requireUserId(
-  request: Request,
-  redirectTo: string = new URL(request.url).pathname,
-) {
+export async function requireUserId(request: Request) {
   const userId = await getUserId(request);
-  if (!userId) {
-    const searchParams = new URLSearchParams([['redirectTo', redirectTo]]);
-    throw redirect(`/login?${searchParams}`);
-  }
   return userId;
 }
 
@@ -60,6 +52,11 @@ export async function requireUser(request: Request) {
   if (user) return user;
 
   throw await logout(request);
+}
+
+export async function checkIfGuest(request: Request) {
+  const session = await getSession(request);
+  return session.get('guest');
 }
 
 export async function createUserSession({
@@ -74,7 +71,12 @@ export async function createUserSession({
   redirectTo: string;
 }) {
   const session = await getSession(request);
-  session.set(USER_SESSION_KEY, userId);
+  if (userId === 'guest') {
+    session.set(USER_SESSION_KEY, bcrypt.hashSync(userId, 10));
+    session.set('guest', true);
+  } else {
+    session.set(USER_SESSION_KEY, userId);
+  }
   return redirect(redirectTo, {
     headers: {
       'Set-Cookie': await sessionStorage.commitSession(session, {

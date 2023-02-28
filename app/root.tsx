@@ -12,7 +12,8 @@ import {
 import { useEffect, useState } from 'react';
 
 import Header from './components/Header';
-import { getUser } from './session.server';
+import { getCartItemsCount } from './models/cart.server';
+import { createUserSession, getUser, requireUserId } from './session.server';
 import tailwindStylesheetUrl from './styles/tailwind.css';
 
 export const links: LinksFunction = () => {
@@ -26,8 +27,20 @@ export const meta: MetaFunction = () => ({
 });
 
 export async function loader({ request }: LoaderArgs) {
+  const userId = await requireUserId(request);
+  if (!userId) {
+    return createUserSession({
+      request,
+      userId: 'guest',
+      remember: false,
+      redirectTo: request.url,
+    });
+  }
+  let cartItemsCount: number = 0;
+  cartItemsCount = await getCartItemsCount(userId);
   return json({
     user: await getUser(request),
+    cartItemsCount,
     ENV: {
       CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
     },
@@ -43,17 +56,15 @@ export default function App() {
   }, []);
 
   return (
-    <html lang="en" className="h-full bg-background">
+    <html lang="es" className="h-full bg-background">
       <head>
         <Meta />
         <Links />
         {onBrowser && (
-          <>
-            <link
-              rel="stylesheet"
-              href="https://unpkg.com/cloudinary-video-player@1.9.5/dist/cld-video-player.min.css"
-            />
-          </>
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/cloudinary-video-player@1.9.5/dist/cld-video-player.min.css"
+          />
         )}
       </head>
       <body>

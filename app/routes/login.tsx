@@ -2,13 +2,18 @@ import type { ActionArgs, LoaderArgs, MetaFunction } from '@remix-run/node';
 import { json, redirect } from '@remix-run/node';
 import { Form, Link, useActionData, useSearchParams } from '@remix-run/react';
 import { verifyLogin } from '~/models/user.server';
-import { createUserSession, getUserId } from '~/session.server';
+import { checkIfGuest, createUserSession, getUserId } from '~/session.server';
 import { safeRedirect, validateEmail } from '~/utils';
 import { useEffect, useRef } from 'react';
 
 export async function loader({ request }: LoaderArgs) {
-  const userId = await getUserId(request);
-  if (userId) return redirect('/');
+  const response = await Promise.allSettled([
+    getUserId(request),
+    checkIfGuest(request),
+  ]);
+  const userId = response[0].status === 'fulfilled' ? response[0].value : null;
+  const isGuest = response[1].status === 'fulfilled' ? response[1].value : null;
+  if (userId && !isGuest) return redirect('/');
   return json({});
 }
 
@@ -16,7 +21,7 @@ export async function action({ request }: ActionArgs) {
   const formData = await request.formData();
   const email = formData.get('email');
   const password = formData.get('password');
-  const redirectTo = safeRedirect(formData.get('redirectTo'), '/notes');
+  const redirectTo = safeRedirect(formData.get('redirectTo'), '/');
   const remember = formData.get('remember');
 
   if (!validateEmail(email)) {
@@ -65,7 +70,7 @@ export const meta: MetaFunction = () => {
 
 export default function LoginPage() {
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get('redirectTo') || '/notes';
+  const redirectTo = searchParams.get('redirectTo') || '/';
   const actionData = useActionData<typeof action>();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -79,7 +84,7 @@ export default function LoginPage() {
   }, [actionData]);
 
   return (
-    <div className="flex min-h-full flex-col justify-center">
+    <div className="mt-10 flex min-h-full flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>
@@ -139,7 +144,7 @@ export default function LoginPage() {
           <input type="hidden" name="redirectTo" value={redirectTo} />
           <button
             type="submit"
-            className="w-full rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
+            className="w-full rounded bg-primary  py-2 px-4 text-white"
           >
             Log in
           </button>
@@ -149,7 +154,7 @@ export default function LoginPage() {
                 id="remember"
                 name="remember"
                 type="checkbox"
-                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                className="h-4 w-4 rounded border-gray-300"
               />
               <label
                 htmlFor="remember"

@@ -12,10 +12,10 @@ export default function NavActions() {
       {user ? (
         <>
           <Link
-            to="/notes"
+            to="/purchases"
             className="text-sm font-medium text-gray-700 hover:text-gray-800"
           >
-            Mis notas
+            Mis compras
           </Link>
           <span className="h-6 w-px bg-gray-400" aria-hidden="true" />
           <Form action="/logout" method="post">

@@ -16,7 +16,8 @@ model User {
   updatedAt DateTime @updatedAt
 
   password Password?
-  notes    Note[]
+  cart     Cart? @relation(fields: [cartId], references: [id])
+  cartId   String?
 }
 
 model Password {
@@ -24,18 +25,6 @@ model Password {
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String @unique
-}
-
-model Note {
-  id    String @id @default(cuid())
-  title String
-  body  String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId String
 }
 
 model Video {
@@ -59,6 +48,8 @@ model Product {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  cartItems CartItem[]
 }
 
 model Image {
@@ -70,4 +61,25 @@ model Image {
 
   product   Product   @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   productId String
+}
+
+model Cart {
+  id        String     @id
+  cartItems CartItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  User      User[]
+}
+
+model CartItem {
+  id         String  @id @default(cuid())
+  cart       Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  cartId     String
+  product    Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId  String
+  quantity   Int
+  price      Decimal
+  totalPrice Decimal
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

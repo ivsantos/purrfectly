@@ -1,10 +1,12 @@
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
-import type { LoaderArgs } from '@remix-run/node';
-import { Link } from '@remix-run/react';
+import type { ActionFunction, LoaderArgs } from '@remix-run/node';
+import { Form, Link } from '@remix-run/react';
 import ImageGallery from '~/components/ImageGallery';
 import Rating from '~/components/Rating';
 import currencyFormatter from '~/lib/currencyFormatter';
+import { addToCart } from '~/models/cart.server';
 import { getProduct } from '~/models/product.server';
+import { getUserId } from '~/session.server';
 import { redirect, typedjson, useTypedLoaderData } from 'remix-typedjson';
 
 export async function loader({ params }: LoaderArgs) {
@@ -17,6 +19,21 @@ export async function loader({ params }: LoaderArgs) {
 
   return typedjson({ product });
 }
+
+export const action: ActionFunction = async ({ request }) => {
+  const userId = await getUserId(request);
+  const formData = await request.formData();
+  const action = formData.get('action');
+
+  if (action === 'addToCart' && userId) {
+    const productId = formData.get('productId');
+    await addToCart(userId, String(productId));
+  } else {
+    throw new Response('Bad Request', { status: 400 });
+  }
+
+  return typedjson({ success: true });
+};
 
 export default function ProductDetailsPage() {
   const { product } = useTypedLoaderData<typeof loader>();
@@ -51,16 +68,19 @@ export default function ProductDetailsPage() {
               <h3 className="sr-only">Descripción</h3>
               <p className="space-y-6 text-base text-gray-700">{description}</p>
             </div>
-            <form className="mt-6">
+            <Form className="mt-6" method="post">
+              <input type="hidden" name="productId" value={product.id} />
               <div className="sm:flex-col1 mt-10 flex">
                 <button
                   type="submit"
+                  name="action"
+                  value="addToCart"
                   className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                 >
                   Añadir al carrito
                 </button>
               </div>
-            </form>
+            </Form>
           </div>
         </div>
       </div>
