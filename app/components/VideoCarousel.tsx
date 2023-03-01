@@ -11,7 +11,7 @@ export default function VideoCarousel({
   title: string;
 }) {
   return (
-    <Card title={title}>
+    <Card id="card-carousel" title={title}>
       <div className="mx-8 grid grid-cols-card gap-4 pb-10">
         {videos.map((video) => (
           <VideoPlayer

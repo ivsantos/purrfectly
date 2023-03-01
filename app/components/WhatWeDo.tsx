@@ -4,7 +4,7 @@ import Card from './Card';
 
 export default function WhatWeDo() {
   return (
-    <Card title="Qué hacemos">
+    <Card id="card-whatwedo" title="Qué hacemos">
       <div className="mx-8 grid grid-cols-card gap-4 pb-10">
         <Link
           to="/catalog"
