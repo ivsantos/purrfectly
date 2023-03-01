@@ -1,42 +1,19 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from '@remix-run/react';
+import { Form, Link } from '@remix-run/react';
+import currencyFormatter from '~/lib/currencyFormatter';
 import { Fragment } from 'react';
 
-const products = [
-  {
-    id: 1,
-    name: 'Throwback Hip Bag',
-    href: '#',
-    color: 'Salmon',
-    price: '$90.00',
-    quantity: 1,
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt:
-      'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-  },
-  {
-    id: 2,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-  },
-  // More products...
-];
+import type { RootLoader } from './CartPreview';
 
-interface CartProps {
+interface CartProps extends Partial<RootLoader> {
   open: boolean;
   toggle: () => void;
 }
 
-export default function Cart({ open, toggle }: CartProps) {
+export default function Cart({ cart, cartTotals, open, toggle }: CartProps) {
+  const { cartItems } = cart || {};
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={toggle}>
@@ -84,12 +61,12 @@ export default function Cart({ open, toggle }: CartProps) {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul className="-my-6 divide-y divide-gray-200">
-                            {products.map((product) => (
-                              <li key={product.id} className="flex py-6">
+                            {cartItems?.map((cartItem) => (
+                              <li key={cartItem.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
+                                    src={cartItem.product.images[0].url}
+                                    alt={cartItem.product.name}
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
@@ -97,27 +74,39 @@ export default function Cart({ open, toggle }: CartProps) {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.href}>
-                                          {product.name}
-                                        </a>
+                                        <Link
+                                          to={`/product/${cartItem.product.id}`}
+                                        >
+                                          {cartItem.product.name}
+                                        </Link>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      <p className="ml-4">
+                                        {currencyFormatter(
+                                          cartItem.product.price,
+                                        )}
+                                      </p>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">
-                                      {product.color}
-                                    </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <p className="text-gray-500">
-                                      Cantidad: {product.quantity}
+                                      Cantidad: {cartItem.quantity}
                                     </p>
                                     <div className="flex">
-                                      <button
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
-                                        Eliminar
-                                      </button>
+                                      <Form method="post">
+                                        <input
+                                          type="hidden"
+                                          name="productId"
+                                          value={cartItem.product.id}
+                                        />
+                                        <button
+                                          type="submit"
+                                          name="action"
+                                          value="delete"
+                                          className="font-medium text-octonary"
+                                        >
+                                          Eliminar
+                                        </button>
+                                      </Form>
                                     </div>
                                   </div>
                                 </div>
@@ -127,36 +116,38 @@ export default function Cart({ open, toggle }: CartProps) {
                         </div>
                       </div>
                     </div>
-                    <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
-                      <div className="flex justify-between text-base font-medium text-gray-900">
-                        <p>Subtotal</p>
-                        <p>$262.00</p>
-                      </div>
-                      <p className="mt-0.5 text-sm text-gray-500">
-                        Gastos de envío y tasas calculadas al pagar.
-                      </p>
-                      <div className="mt-6">
-                        <Link
-                          to="/checkout"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                        >
-                          Checkout
-                        </Link>
-                      </div>
-                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                        <p>
-                          o{' '}
-                          <button
-                            type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={toggle}
-                          >
-                            Continúa comprando
-                            <span aria-hidden="true"> &rarr;</span>
-                          </button>
+                    {cartItems && cartItems.length > 0 && (
+                      <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                        <div className="flex justify-between text-base font-medium text-gray-900">
+                          <p>Subtotal</p>
+                          <p>{currencyFormatter(cartTotals!)}</p>
+                        </div>
+                        <p className="mt-0.5 text-sm text-gray-500">
+                          Gastos de envío y tasas calculadas al pagar.
                         </p>
+                        <div className="mt-6">
+                          <Link
+                            to="/checkout"
+                            className="flex items-center justify-center rounded-md border border-transparent bg-primary px-6 py-3 text-base font-medium text-white shadow-sm"
+                          >
+                            Checkout
+                          </Link>
+                        </div>
+                        <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                          <p>
+                            o{' '}
+                            <button
+                              type="button"
+                              className="font-medium text-octonary"
+                              onClick={toggle}
+                            >
+                              Continúa comprando
+                              <span aria-hidden="true"> &rarr;</span>
+                            </button>
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

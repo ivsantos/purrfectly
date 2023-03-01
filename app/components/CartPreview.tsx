@@ -1,28 +1,36 @@
 import { ShoppingBagIcon } from '@heroicons/react/24/outline';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import type {
+  CartItem,
+  Cart as CartType,
+  Image,
+  Product,
+} from '@prisma/client';
+import { useCallback, useState } from 'react';
 import { useTypedLoaderData } from 'remix-typedjson';
 
 import Cart from './Cart';
 
-type LoaderData = {
+export interface RootLoader {
   cartItemsCount: number;
-};
+  cartTotals: number;
+  cart:
+    | (CartType & {
+        cartItems: (CartItem & {
+          product: Product & {
+            images: Image[];
+          };
+        })[];
+      })
+    | null;
+}
 
 export default function CartPreview() {
-  const { cartItemsCount } = useTypedLoaderData<LoaderData>();
+  const { cartItemsCount, cart, cartTotals } = useTypedLoaderData<RootLoader>();
   const [open, setOpen] = useState(false);
-  const count = useRef(cartItemsCount);
 
   const handleToggleCart = useCallback(() => {
     setOpen((prevOpen) => !prevOpen);
   }, []);
-
-  useEffect(() => {
-    if (cartItemsCount !== count.current) {
-      count.current = cartItemsCount;
-      handleToggleCart();
-    }
-  }, [cartItemsCount, handleToggleCart]);
 
   return (
     <>
@@ -41,7 +49,12 @@ export default function CartPreview() {
           <span className="sr-only">artículos en la bolsa, ver bolsa</span>
         </button>
       </div>
-      <Cart open={open} toggle={handleToggleCart} />
+      <Cart
+        cart={cart}
+        cartTotals={cartTotals}
+        open={open}
+        toggle={handleToggleCart}
+      />
     </>
   );
 }

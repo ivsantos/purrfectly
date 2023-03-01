@@ -1,4 +1,9 @@
-import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/node';
+import type {
+  ActionFunction,
+  LinksFunction,
+  LoaderArgs,
+  MetaFunction,
+} from '@remix-run/node';
 import { json } from '@remix-run/node';
 import {
   Links,
@@ -12,8 +17,18 @@ import {
 import { useEffect, useState } from 'react';
 
 import Header from './components/Header';
-import { getCartItemsCount } from './models/cart.server';
-import { createUserSession, getUser, requireUserId } from './session.server';
+import {
+  getCartItemsCount,
+  getShoppingCart,
+  getTotals,
+  removeFromCart,
+} from './models/cart.server';
+import {
+  createUserSession,
+  getUser,
+  getUserId,
+  requireUserId,
+} from './session.server';
 import tailwindStylesheetUrl from './styles/tailwind.css';
 
 export const links: LinksFunction = () => {
@@ -36,16 +51,40 @@ export async function loader({ request }: LoaderArgs) {
       redirectTo: request.url,
     });
   }
+  const cart = await getShoppingCart(userId);
   let cartItemsCount: number = 0;
   cartItemsCount = await getCartItemsCount(userId);
+  const cartTotals = await getTotals(userId);
   return json({
     user: await getUser(request),
+    cart,
     cartItemsCount,
+    cartTotals,
     ENV: {
       CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
     },
   });
 }
+
+export const action: ActionFunction = async ({ request }) => {
+  const userId = await getUserId(request);
+  const formData = await request.formData();
+  const action = formData.get('action');
+
+  if (action === 'delete' && userId) {
+    const productId = formData.get('productId');
+    await removeFromCart(userId, String(productId));
+  } else {
+    throw new Response('Bad Request', { status: 400 });
+  }
+
+  // Go back where we came from
+  const referer = request.headers.get('Referer');
+  if (referer) {
+    return json({ redirect: referer }, { status: 303 });
+  }
+  // return typedjson({ success: true });
+};
 
 export default function App() {
   const { ENV } = useLoaderData<typeof loader>();
