@@ -59,8 +59,11 @@ model Image {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  product   Product   @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  productId String
+  product   Product?   @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId String?
+
+  adoptable   Adoptable?   @relation(fields: [adoptableId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  adoptableId String?
 }
 
 model Cart {
@@ -80,6 +83,19 @@ model CartItem {
   quantity   Int
   price      Decimal
   totalPrice Decimal
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Adoptable {
+  id    String @id @default(cuid())
+  name String
+  sex String
+  description String
+  category String
+  status String
+  images Image[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

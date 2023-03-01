@@ -24,7 +24,7 @@ export default function WhatWeDo() {
           </p>
         </Link>
         <Link
-          to="/adopt"
+          to="/adoptable"
           className="flex flex-col gap-4 rounded-2xl bg-white text-center transition-colors duration-200 hover:bg-gradient-to-b hover:from-blue-700 hover:via-blue-800 hover:to-gray-900 hover:text-white"
         >
           <img

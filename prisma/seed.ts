@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
+import { createAdoptables } from './createAdoptables';
 import { createProducts } from './createProducts';
 
 const prisma = new PrismaClient();
@@ -36,6 +37,7 @@ async function seed() {
   });
 
   await createProducts(prisma);
+  await createAdoptables(prisma);
 
   console.log(`Database has been seeded. 🌱`);
 }

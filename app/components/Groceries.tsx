@@ -106,7 +106,7 @@ export default function Groceries() {
         </g>
       </g>
       <g
-        className="animate-floating-wool"
+        className="animate-floating"
         style={{
           transformOrigin: '139.93px 212.988px',
         }}

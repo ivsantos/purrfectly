@@ -286,7 +286,7 @@ export default function CatWool() {
       </g>
       <g
         id="wool"
-        className="animate-floating-wool"
+        className="animate-floating"
         style={{
           transformOrigin: '286.107px 144.973px',
         }}

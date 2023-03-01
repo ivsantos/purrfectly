@@ -12,7 +12,7 @@ const navigation = {
     },
     {
       name: 'En adopción',
-      href: '/adopt',
+      href: '/adoptable',
     },
     {
       name: 'Consejos',

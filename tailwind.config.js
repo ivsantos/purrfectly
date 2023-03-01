@@ -16,7 +16,7 @@ module.exports = {
         highlight: '#FDC435',
       },
       keyframes: {
-        'floating-wool': {
+        floating: {
           '0%, 100%': {
             opacity: 1,
             transform: 'translateY(0px)',
@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       animation: {
-        'floating-wool': '2s infinite linear floating-wool',
+        floating: '2s infinite linear floating',
       },
       gridTemplateColumns: {
         card: 'repeat(auto-fit, minmax(300px, 1fr))',
