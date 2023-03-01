@@ -2,6 +2,7 @@ import type { SourceOptions } from 'cloudinary-video-player/types/video-player';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import ItemOverlay from './ItemOverlay';
 import VideoOverlay from './VideoOverlay';
 
 let cloudinary: typeof window.cloudinary;
@@ -14,6 +15,7 @@ interface VideoPlayerProps {
 
 const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [ended, setEnded] = useState(false);
   const { shoppable } = options || {};
@@ -35,6 +37,14 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
         });
         video.source(source, options);
         setLoaded(true);
+      }
+
+      // Hack to have SPA navigation working with Cloudinary player.
+      const panel =
+        videoRef.current.parentElement?.querySelector('.cld-spbl-panel');
+      if (panel) {
+        panel.firstElementChild?.remove();
+        panelRef.current = panel as HTMLDivElement;
       }
     }
 
@@ -85,6 +95,8 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
           <VideoOverlay products={shoppable?.products} />,
           videoParent,
         )}
+      {panelRef.current &&
+        createPortal(<ItemOverlay shoppable={shoppable} />, panelRef.current)}
       <video
         id={id}
         ref={videoRef}

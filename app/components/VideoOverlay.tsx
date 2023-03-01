@@ -28,11 +28,7 @@ export default function VideoOverlay({ products }: VideoOverlayProps) {
                 <span
                   className="cld-spbl-overlay text-color-semi-bg base-color-text"
                   title="Ir al producto"
-                >
-                  <span className="cld-spbl-overlay-text rounded-md bg-black text-white">
-                    Ir al producto
-                  </span>
-                </span>
+                />
                 <img
                   alt={product.productName}
                   className="cld-spbl-img cld-vp-responsive"
