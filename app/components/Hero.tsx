@@ -41,7 +41,7 @@ export default function Hero() {
         <CatWool />
       </div>
       <div className="w-full animate-bounce text-center">
-        <button type="button" onClick={handleGoDown} className="h-8 w-8">
+        <button type="button" onClick={handleGoDown} className="w-10">
           <img
             src="https://res.cloudinary.com/dfp8qzzku/image/upload/c_scale,w_0.5/v1677693744/images/down-arrow_fgt07e.png"
             alt="Flecha hacia abajo"

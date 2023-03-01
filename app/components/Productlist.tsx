@@ -12,7 +12,7 @@ export default function ProductList({ products }: ProductListProps) {
   }
 
   return (
-    <div className="mx-auto grid max-w-5xl grid-cols-card gap-12">
+    <div className="mx-auto mb-10 grid max-w-5xl grid-cols-card gap-12">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
