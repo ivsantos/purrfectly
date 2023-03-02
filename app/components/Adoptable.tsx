@@ -31,7 +31,7 @@ export default function Adoptable({ adoptable }: AdoptableProps) {
     >
       <div className="relative rounded-md bg-white shadow-xl">
         <div
-          className={`ribbon absolute -top-2 -left-2 h-40 w-40 overflow-hidden before:absolute before:top-0 before:right-0 before:-z-[1] before:border-4 after:absolute after:left-0 after:bottom-0 after:-z-[1] ${
+          className={`absolute -top-2 -left-2 h-40 w-40 overflow-hidden before:absolute before:top-0 before:right-0 before:-z-[1] before:border-4 after:absolute after:left-0 after:bottom-0 after:-z-[1] ${
             borderStatus[status as StatusKeys]
           } after:border-4`}
         >
