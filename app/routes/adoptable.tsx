@@ -1,4 +1,5 @@
 import AdoptableList from '~/components/AdoptableList';
+import EmphasizeText from '~/components/EmphasizeText';
 import FamilyAdopt from '~/components/FamilyAdopt';
 import { getAdoptables } from '~/models/adoptable.server';
 import { typedjson, useTypedLoaderData } from 'remix-typedjson';
@@ -20,7 +21,12 @@ export default function Adoptable() {
             <h1 className="font mb-4 text-4xl font-bold tracking-tight text-gray-900">
               En adopción
             </h1>
-            <p>Dale un hogar y cambia su vida. Recuerda: no compres, adopta.</p>
+            <p>
+              Dale un hogar y cambia su vida. Recuerda:{' '}
+              <span className="relative font-bold">
+                <EmphasizeText /> no compres, adopta.
+              </span>
+            </p>
           </div>
           <FamilyAdopt />
         </div>

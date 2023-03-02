@@ -27,7 +27,7 @@ export default function Adoptable({ adoptable }: AdoptableProps) {
     <Link
       to={`/adopt/${id}`}
       title={name}
-      className="flex flex-col rounded-lg bg-white shadow-lg"
+      className="flex transform flex-col rounded-lg bg-white shadow-lg transition duration-300 ease-in-out hover:scale-[1.03]"
     >
       <div className="relative rounded-md bg-white shadow-xl">
         <div

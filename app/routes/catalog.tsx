@@ -41,7 +41,7 @@ export default function Catalog() {
             <p>Descubre lo que tu mascota necesita</p>
             <p>
               a partir de la{' '}
-              <span className="relative">
+              <span className="relative font-bold">
                 <EmphasizeText /> experiencia de otras
               </span>
             </p>
