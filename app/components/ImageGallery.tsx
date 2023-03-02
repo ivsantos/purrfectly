@@ -9,7 +9,18 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images, name }: ImageGalleryProps) {
   return (
     <Tab.Group as="div" className="flex flex-col-reverse">
-      <div className="mx-auto mt-6 w-full max-w-2xl lg:max-w-none">
+      <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
+        {images.map((image) => (
+          <Tab.Panel key={image.id}>
+            <img
+              src={image.url}
+              alt=""
+              className="h-full w-full object-cover object-center sm:rounded-lg"
+            />
+          </Tab.Panel>
+        ))}
+      </Tab.Panels>
+      <div className="mx-auto mb-6 w-full max-w-2xl lg:max-w-none">
         <Tab.List className="grid grid-cols-4 gap-6">
           {images.map((image) => (
             <Tab
@@ -38,19 +49,6 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
           ))}
         </Tab.List>
       </div>
-      <Tab.Panels className="aspect-w-1 aspect-h-1 h-96 w-full">
-        {images.map((image) => (
-          <Tab.Panel key={image.id}>
-            <img
-              src={image.url}
-              width="100px"
-              height="100px"
-              alt=""
-              className="h-full w-full object-cover object-center sm:rounded-lg"
-            />
-          </Tab.Panel>
-        ))}
-      </Tab.Panels>
     </Tab.Group>
   );
 }

@@ -48,4 +48,76 @@ export async function createAdoptables(prisma: PrismaClient) {
       },
     },
   });
+
+  await prisma.adoptable.create({
+    data: {
+      name: 'Oliver',
+      sex: 'm',
+      description:
+        'Oliver es un gato Scottish Fold de 2 años de edad con un pelaje suave y brillante de color gris oscuro. Es un gato muy inteligente y curioso que siempre está buscando algo nuevo para explorar. Siempre está preparado para jugar con juguetes que desafíen su mente.',
+      category: 'Gato',
+      status: 'Adoptado',
+      images: {
+        create: [
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/scottish-1_qshxpp.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/scottish-2_tyyfiz.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/scottish-3_n5b20y.jpg',
+          },
+        ],
+      },
+    },
+  });
+
+  await prisma.adoptable.create({
+    data: {
+      name: 'Logan',
+      sex: 'm',
+      description:
+        'Logan es un gato mezcla de siamés de 4 meses y medio de edad con un pelaje de color crema. Es un gato muy cariñoso y juguetón que adora la atención de todos, tanto humanos como otros amigos gatos. Si buscas un gato mezcla de siamés cariñoso y divertido, ¡Logan es el compañero de vida perfecto para ti!',
+      category: 'Gato',
+      status: 'Reservado',
+      images: {
+        create: [
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677777146/images/adoptable/siamese-1_o51vn5.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677777146/images/adoptable/siamese-2_p0nucc.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677777146/images/adoptable/siamese-3_z8gwrq.jpg',
+          },
+        ],
+      },
+    },
+  });
+
+  await prisma.adoptable.create({
+    data: {
+      name: 'Chanchito',
+      sex: 'm',
+      description:
+        'Chanchito es un gatito 2 meses y medio de edad muy cariñoso y un poco travieso. Se acurrucará en tus piernas y ronroneará hasta que lo acaricies.',
+      category: 'Gato',
+      status: 'Disponible',
+      images: {
+        create: [
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/gray-kitten-1_yhgsny.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/gray-kitten-2_ecdwpc.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/gray-kitten-3_kadpkh.jpg',
+          },
+        ],
+      },
+    },
+  });
 }

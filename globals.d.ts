@@ -26,3 +26,11 @@ interface Args {
 interface ShoppableProductList {
   products: ShoppableProduct[];
 }
+
+const Status = {
+  Adoptado: 'Adoptado',
+  Disponible: 'Disponible',
+  Reservado: 'Reservado',
+} as const;
+
+type StatusKeys = (typeof Status)[keyof typeof Status];
