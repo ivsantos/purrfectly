@@ -127,13 +127,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/raton_1_eu89ea.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677885226/images/raton-1_fxi3vh.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/raton_2_punctf.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677885226/images/raton-2_s6luud.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/raton_3_xn8nj3.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677885226/images/raton-3_zysvrx.jpg',
           },
         ],
       },
@@ -410,7 +410,7 @@ export async function createProducts(prisma: PrismaClient) {
                 productName: 'Caña con ratón',
                 startTime: 0,
                 endTime: 8,
-                publicId: 'images/raton_2_punctf',
+                publicId: 'images/raton-1_fxi3vh',
                 onHover: {
                   action: 'overlay',
                   args: 'Caña con ratón',
