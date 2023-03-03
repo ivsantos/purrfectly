@@ -43,7 +43,7 @@ export default function Tips() {
           <CatJar />
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="mb-10 flex justify-center">
         <ul className="grid w-5/6 grid-cols-card gap-8">
           {posts.map((post: any) => (
             <Link

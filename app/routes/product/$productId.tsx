@@ -40,7 +40,7 @@ export default function ProductDetailsPage() {
   const { name, description, images, price, rating, category } = product;
 
   return (
-    <div className="bg-white">
+    <>
       <Link to="/catalog" className="mt-8 ml-8 inline-block">
         <p className="flex items-center text-sm font-medium text-primary">
           <ChevronLeftIcon className="mr-2 h-5 w-5" />
@@ -84,6 +84,6 @@ export default function ProductDetailsPage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
