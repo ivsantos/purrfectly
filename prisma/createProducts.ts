@@ -12,13 +12,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/plumero_1_xfggqc.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_1_xfggqc.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/plumero_2_rwnc7d.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_2_rwnc7d.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/plumero_3_klilf2.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_3_klilf2.webp',
           },
         ],
       },
@@ -35,13 +35,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/rascador_esquinero_1_zryxsh.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/rascador_esquinero_1_zryxsh.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/rascador_esquinero_2_uz4xyt.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/rascador_esquinero_2_uz4xyt.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/rascador_esquinero_3_ssodnn.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/rascador_esquinero_3_ssodnn.webp',
           },
         ],
       },
@@ -58,13 +58,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/peluche_1_uvt240.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/peluche_1_uvt240.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/peluche_2_fzvxj4.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/peluche_2_fzvxj4.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/peluche_3_v8cmb5.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/peluche_3_v8cmb5.webp',
           },
         ],
       },
@@ -81,13 +81,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/pez_1_t5ssq6.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/pez_1_t5ssq6.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/pez_2_bcnerc.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/pez_2_bcnerc.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/pez_3_ljxsza.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/pez_3_ljxsza.webp',
           },
         ],
       },
@@ -104,13 +104,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/interactivo_1_gafeph.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/interactivo_1_gafeph.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/interactivo_2_av79la.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/interactivo_2_av79la.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347477/images/interactivo_3_pcva07.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/interactivo_3_pcva07.webp',
           },
         ],
       },
@@ -127,13 +127,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/raton_1_eu89ea.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/raton_1_eu89ea.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/raton_2_punctf.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/raton_2_punctf.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/raton_3_xn8nj3.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/raton_3_xn8nj3.webp',
           },
         ],
       },
@@ -150,13 +150,13 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/rascador_poste_1_tegnqv.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/rascador_poste_1_tegnqv.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/rascador_poste_2_g7dv41.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/rascador_poste_2_g7dv41.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677347478/images/rascador_poste_3_dmylj5.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347478/images/rascador_poste_3_dmylj5.webp',
           },
         ],
       },
