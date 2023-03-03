@@ -1,4 +1,4 @@
-import { Form, Link } from '@remix-run/react';
+import { Form, Link, NavLink } from '@remix-run/react';
 import { useOptionalUser } from '~/utils';
 
 import CartPreview from './CartPreview';
@@ -8,7 +8,7 @@ export default function NavActions() {
   const user = useOptionalUser();
 
   return (
-    <div className="flex flex-1 items-center justify-end space-x-6">
+    <div className="flex h-full flex-1 items-center justify-end space-x-6">
       {user ? (
         <>
           <Link
@@ -29,19 +29,31 @@ export default function NavActions() {
         </>
       ) : (
         <>
-          <Link
+          <NavLink
             to="/login"
-            className="text-sm font-medium text-gray-700 hover:text-gray-800"
+            className={({ isActive }) =>
+              `flex h-full items-center border-b-2 text-sm ${
+                isActive
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-gray-900'
+              }`
+            }
           >
             Inicia sesión
-          </Link>
+          </NavLink>
           <span className="h-6 w-px bg-gray-400" aria-hidden="true" />
-          <Link
+          <NavLink
             to="/join"
-            className="text-sm font-medium text-gray-700 hover:text-gray-800"
+            className={({ isActive }) =>
+              `flex h-full items-center border-b-2 text-sm ${
+                isActive
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-gray-900'
+              }`
+            }
           >
             Regístrate
-          </Link>
+          </NavLink>
         </>
       )}
       <Search />
