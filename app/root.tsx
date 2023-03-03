@@ -16,6 +16,7 @@ import {
 } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 
+import Footer from './components/Footer';
 import Header from './components/Header';
 import {
   getCartItemsCount,
@@ -106,9 +107,10 @@ export default function App() {
           />
         )}
       </head>
-      <body>
+      <body className="grid min-h-screen grid-rows-content">
         <Header />
         <Outlet />
+        <Footer />
         <ScrollRestoration />
         <script
           dangerouslySetInnerHTML={{
