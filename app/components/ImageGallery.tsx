@@ -10,11 +10,13 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
   return (
     <Tab.Group as="div" className="flex flex-col-reverse">
       <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
-        {images.map((image) => (
+        {images.map((image, idx) => (
           <Tab.Panel key={image.id}>
             <img
               src={image.url}
-              alt=""
+              alt={`${name} ${idx + 1}`}
+              width="360"
+              height="360"
               className="h-full w-full object-cover object-center sm:rounded-lg"
             />
           </Tab.Panel>
@@ -22,7 +24,7 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
       </Tab.Panels>
       <div className="mx-auto mb-6 w-full max-w-2xl lg:max-w-none">
         <Tab.List className="grid grid-cols-4 gap-6">
-          {images.map((image) => (
+          {images.map((image, idx) => (
             <Tab
               key={image.id}
               className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
@@ -33,7 +35,9 @@ export default function ImageGallery({ images, name }: ImageGalleryProps) {
                   <span className="absolute inset-0 overflow-hidden rounded-md">
                     <img
                       src={image.url}
-                      alt=""
+                      alt={`${name} ${idx + 1}`}
+                      width="72"
+                      height="96"
                       className="h-full w-full object-cover object-center"
                     />
                   </span>
