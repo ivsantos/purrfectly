@@ -42,7 +42,7 @@ export default function Footer() {
           href="https://cloudinary.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex basis-48 flex-col items-center justify-center space-x-2"
+          className="flex basis-48 flex-col items-center justify-center gap-2 space-x-2"
         >
           <span className="text-xs text-gray-500">Made with</span>
           <CloudinaryLogo />

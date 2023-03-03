@@ -12,10 +12,10 @@ export async function createProducts(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_1_xfggqc.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_2_rwnc7d.webp',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_2_rwnc7d.webp',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_1_xfggqc.webp',
           },
           {
             url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677347477/images/plumero_3_klilf2.webp',
@@ -163,6 +163,78 @@ export async function createProducts(prisma: PrismaClient) {
     },
   });
 
+  const product8 = await prisma.product.create({
+    data: {
+      name: 'Lanzador de pelota',
+      description:
+        'Este lanzador manual es perfecto para aquellos días en que quieres pasar tiempo con tu perro y proporcionarle una sesión de ejercicio divertida. Simplemente coloca la pelota en el lanzador y lánzala con facilidad a una distancia adecuada para tu perro. Tu perro correrá emocionado detrás de la pelota y la recogerá para que puedas volver a lanzarla. El lanzador cuenta con un diseño ergonómico y es fácil de usar, lo que te permite disfrutar del tiempo de juego con tu perro sin cansarte. Además, el lanzador es duradero y está hecho de materiales de alta calidad.',
+      price: 1.99,
+      category: 'Juguetes para perros',
+      rating: 4,
+      images: {
+        create: [
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/lanzador-1_x2cokl.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/lanzador-2_rf8wrk.jpg',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/lanzador-3_tdbbwj.jpg',
+          },
+        ],
+      },
+    },
+  });
+
+  const product9 = await prisma.product.create({
+    data: {
+      name: 'Peluche ardilla',
+      description:
+        'El peluche tiene un diseño realista y está hecha con materiales suaves y cómodos, lo que lo hace perfecta para que tu perro lo abrace y lo muerda. Además, el peluche tiene un chirriador en su interior que añade un elemento de diversión y emoción para tu perro mientras juega. El peluche es de tamaño perfecto para perros pequeños y medianos y es fácil de limpiar.',
+      price: 1.99,
+      category: 'Peluches',
+      rating: 4,
+      images: {
+        create: [
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/peluche-perro-1_lirv6e.webp',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/peluche-perro-2_vui63n.webp',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/peluche-perro-3_zvdsbi.webp',
+          },
+        ],
+      },
+    },
+  });
+
+  const product10 = await prisma.product.create({
+    data: {
+      name: 'Cuerda perro',
+      description:
+        'La cuerda está hecha de materiales de alta calidad y es resistente a los mordiscos de tu perro, lo que garantiza su durabilidad. Además, la cuerda ayuda a limpiar los dientes y masajear las encías de tu perro mientras mastica, lo que lo convierte en un juguete divertido y beneficioso para su salud dental.',
+      price: 1.99,
+      category: 'Juguetes para perros',
+      rating: 4,
+      images: {
+        create: [
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/cuerda-1_kdalzr.webp',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/cuerda-2_xjjeel.webp',
+          },
+          {
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677870779/images/cuerda-3_p4cl1o.webp',
+          },
+        ],
+      },
+    },
+  });
+
   const shoppableConfig = {
     startState: 'open',
     autoClose: 2,
@@ -189,7 +261,7 @@ export async function createProducts(prisma: PrismaClient) {
                 productName: 'Plumero',
                 startTime: 0,
                 endTime: 11,
-                publicId: 'images/plumero_1_xfggqc',
+                publicId: 'images/plumero_2_rwnc7d',
                 hotspots: [
                   {
                     time: '00:08',
@@ -364,6 +436,90 @@ export async function createProducts(prisma: PrismaClient) {
                   action: 'goto',
                   args: {
                     url: `/product/${product7.id}`,
+                  },
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        publicId: 'videos/lanzador_fh3pxj',
+        category: 'new-arrivals',
+        options: {
+          shoppable: {
+            ...shoppableConfig,
+            products: [
+              {
+                productId: product8.id,
+                productName: 'Lanzador de pelota',
+                startTime: 0,
+                endTime: 21,
+                publicId: 'images/lanzador-1_x2cokl',
+                onHover: {
+                  action: 'overlay',
+                  args: 'Lanzador de pelota',
+                },
+                onClick: {
+                  action: 'goto',
+                  args: {
+                    url: `/product/${product8.id}`,
+                  },
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        publicId: 'videos/peluche-perro_ozfttx',
+        category: 'new-arrivals',
+        options: {
+          shoppable: {
+            ...shoppableConfig,
+            products: [
+              {
+                productId: product9.id,
+                productName: 'Peluche ardilla',
+                startTime: 0,
+                endTime: 5,
+                publicId: 'images/peluche-perro-1_lirv6e',
+                onHover: {
+                  action: 'overlay',
+                  args: 'Peluche ardilla',
+                },
+                onClick: {
+                  action: 'goto',
+                  args: {
+                    url: `/product/${product9.id}`,
+                  },
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        publicId: 'videos/cuerda-perro_fgqg6j',
+        category: 'new-arrivals',
+        options: {
+          shoppable: {
+            ...shoppableConfig,
+            products: [
+              {
+                productId: product10.id,
+                productName: 'Cuerda perro',
+                startTime: 0,
+                endTime: 12,
+                publicId: 'images/cuerda-1_kdalzr',
+                onHover: {
+                  action: 'overlay',
+                  args: 'Cuerda perro',
+                },
+                onClick: {
+                  action: 'goto',
+                  args: {
+                    url: `/product/${product10.id}`,
                   },
                 },
               },

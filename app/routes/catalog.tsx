@@ -26,7 +26,11 @@ export async function loader() {
     (video) => video.category === 'best-sellers',
   );
 
-  return typedjson({ featuredVideos, bestSellers, products });
+  const newArrivals = videos.filter(
+    (video) => video.category === 'new-arrivals',
+  );
+
+  return typedjson({ featuredVideos, bestSellers, newArrivals, products });
 }
 
 export const action: ActionFunction = async ({ request }) => {
@@ -45,7 +49,7 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function Catalog() {
-  const { featuredVideos, bestSellers, products } =
+  const { featuredVideos, bestSellers, newArrivals, products } =
     useTypedLoaderData<typeof loader>();
 
   return (
@@ -70,6 +74,7 @@ export default function Catalog() {
       <div className="flex flex-col gap-10">
         <VideoCarousel videos={featuredVideos} title="Destacados" />
         <VideoCarousel videos={bestSellers} title="Más vendidos" />
+        <VideoCarousel videos={newArrivals} title="Recién llegados" />
         <Productlist products={products} />
       </div>
     </>

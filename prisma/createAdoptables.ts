@@ -12,13 +12,13 @@ export async function createAdoptables(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710472/images/adoptable/carey-1_n5cprf.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710472/images/adoptable/carey-1_n5cprf.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710472/images/adoptable/carey-2_oa683b.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710472/images/adoptable/carey-2_oa683b.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710472/images/adoptable/carey-3_v48vmn.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710472/images/adoptable/carey-3_v48vmn.jpg',
           },
         ],
       },
@@ -36,13 +36,13 @@ export async function createAdoptables(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710472/images/adoptable/orange-kitten-1_au3qkg.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710472/images/adoptable/orange-kitten-1_au3qkg.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710472/images/adoptable/orange-kitten-2_bgh7e1.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710472/images/adoptable/orange-kitten-2_bgh7e1.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710472/images/adoptable/orange-kitten-3_au2mnz.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710472/images/adoptable/orange-kitten-3_au2mnz.jpg',
           },
         ],
       },
@@ -60,13 +60,13 @@ export async function createAdoptables(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/scottish-1_qshxpp.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710473/images/adoptable/scottish-1_qshxpp.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/scottish-2_tyyfiz.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710473/images/adoptable/scottish-2_tyyfiz.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/scottish-3_n5b20y.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710473/images/adoptable/scottish-3_n5b20y.jpg',
           },
         ],
       },
@@ -84,13 +84,13 @@ export async function createAdoptables(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677777146/images/adoptable/siamese-1_o51vn5.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677777146/images/adoptable/siamese-1_o51vn5.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677777146/images/adoptable/siamese-2_p0nucc.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677777146/images/adoptable/siamese-2_p0nucc.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677777146/images/adoptable/siamese-3_z8gwrq.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677777146/images/adoptable/siamese-3_z8gwrq.jpg',
           },
         ],
       },
@@ -108,13 +108,13 @@ export async function createAdoptables(prisma: PrismaClient) {
       images: {
         create: [
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/gray-kitten-1_yhgsny.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710473/images/adoptable/gray-kitten-1_yhgsny.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/gray-kitten-2_ecdwpc.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710473/images/adoptable/gray-kitten-2_ecdwpc.jpg',
           },
           {
-            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/v1677710473/images/adoptable/gray-kitten-3_kadpkh.jpg',
+            url: 'https://res.cloudinary.com/dfp8qzzku/image/upload/w_360,ar_1:1,c_fill/v1677710473/images/adoptable/gray-kitten-3_kadpkh.jpg',
           },
         ],
       },
