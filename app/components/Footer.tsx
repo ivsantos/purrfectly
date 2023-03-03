@@ -31,24 +31,24 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer className="min-h-[135px] bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between py-12 px-8">
-        <div>
+    <footer className="h-[110px] bg-white">
+      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-8">
+        <div className="basis-48 justify-start">
           <p className="text-center text-xs leading-5 text-gray-500">
-            &copy; 2023 Purrfectly. All rights reserved.
+            &copy; 2023 Purrfectly.
           </p>
         </div>
         <a
           href="https://cloudinary.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-2"
+          className="flex basis-48 flex-col items-center justify-center space-x-2"
         >
           <span className="text-xs text-gray-500">Made with</span>
           <CloudinaryLogo />
           <span className="text-2xl">🫰</span>
         </a>
-        <div className="flex justify-center space-x-6">
+        <div className="flex basis-48 justify-end space-x-6">
           {navigation.map((item) => (
             <a
               key={item.name}
