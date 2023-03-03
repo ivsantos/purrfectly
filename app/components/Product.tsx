@@ -32,14 +32,14 @@ export default function Product({ product }: ProductProps) {
           </p>
         </div>
       </Link>
-      <Form method="post" className="pb-4">
+      <Form method="post" className="px-4 pb-4">
         <input type="hidden" name="productId" value={product.id} />
         <button
           onClick={handleAddToCart}
           type="submit"
           name="action"
           value="addToCart"
-          className="mx-auto flex w-[85%] flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white hover:bg-primaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50"
+          className="mx-auto flex w-full flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white hover:bg-primaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50"
         >
           Añadir al carrito
         </button>
