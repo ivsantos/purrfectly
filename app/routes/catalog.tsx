@@ -1,10 +1,13 @@
 import type { Image, Product } from '@prisma/client';
+import type { ActionFunction } from '@remix-run/node';
 import EmphasizeText from '~/components/EmphasizeText';
 import Groceries from '~/components/Groceries';
 import Productlist from '~/components/Productlist';
 import VideoCarousel from '~/components/VideoCarousel';
+import { addToCart } from '~/models/cart.server';
 import { getProducts } from '~/models/product.server';
 import { getVideos } from '~/models/video.server';
+import { getUserId } from '~/session.server';
 import { typedjson, useTypedLoaderData } from 'remix-typedjson';
 
 export type ProductWithImages = (Product & {
@@ -25,6 +28,21 @@ export async function loader() {
 
   return typedjson({ featuredVideos, bestSellers, products });
 }
+
+export const action: ActionFunction = async ({ request }) => {
+  const userId = await getUserId(request);
+  const formData = await request.formData();
+  const action = formData.get('action');
+
+  if (action === 'addToCart' && userId) {
+    const productId = formData.get('productId');
+    await addToCart(userId, String(productId));
+  } else {
+    throw new Response('Bad Request', { status: 400 });
+  }
+
+  return typedjson({ success: true });
+};
 
 export default function Catalog() {
   const { featuredVideos, bestSellers, products } =

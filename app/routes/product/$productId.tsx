@@ -39,6 +39,10 @@ export default function ProductDetailsPage() {
   const { product } = useTypedLoaderData<typeof loader>();
   const { name, description, images, price, rating, category } = product;
 
+  const handleAddToCart = () => {
+    window.dispatchEvent(new CustomEvent('addToCart'));
+  };
+
   return (
     <>
       <Link to="/catalog" className="mt-8 ml-8 inline-block">
@@ -72,10 +76,11 @@ export default function ProductDetailsPage() {
               <input type="hidden" name="productId" value={product.id} />
               <div className="sm:flex-col1 mt-10 flex">
                 <button
+                  onClick={handleAddToCart}
                   type="submit"
                   name="action"
                   value="addToCart"
-                  className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                  className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white hover:bg-primaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                 >
                   Añadir al carrito
                 </button>

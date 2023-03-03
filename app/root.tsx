@@ -15,6 +15,7 @@ import {
   useLoaderData,
 } from '@remix-run/react';
 import { useEffect, useState } from 'react';
+import { typedjson } from 'remix-typedjson';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -82,9 +83,9 @@ export const action: ActionFunction = async ({ request }) => {
   // Go back where we came from
   const referer = request.headers.get('Referer');
   if (referer) {
-    return json({ redirect: referer }, { status: 303 });
+    return typedjson({ redirect: referer }, { status: 303 });
   }
-  // return typedjson({ success: true });
+  return typedjson({ success: true });
 };
 
 export default function App() {
