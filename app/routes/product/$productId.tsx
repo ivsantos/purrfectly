@@ -45,12 +45,12 @@ export default function ProductDetailsPage() {
 
   return (
     <>
-      <Link to="/catalog" className="mt-8 ml-8 inline-block">
-        <p className="flex items-center text-sm font-medium text-primary">
+      <p className="flex items-center text-sm font-medium text-primary">
+        <Link to="/catalog" className="mt-8 ml-8 flex">
           <ChevronLeftIcon className="mr-2 h-5 w-5" />
           <span>Volver al catálogo</span>
-        </p>
-      </Link>
+        </Link>
+      </p>
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-4xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-28">
           <ImageGallery images={images} name={name} />
