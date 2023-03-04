@@ -42,11 +42,13 @@ export default function Footer() {
           href="https://cloudinary.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex basis-48 flex-col items-center justify-center gap-2 space-x-2"
+          className="basis-48 rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1"
         >
-          <span className="text-xs text-gray-500">Made with</span>
-          <CloudinaryLogo />
-          <span className="text-2xl">🫰</span>
+          <div className="flex flex-col items-center justify-center gap-2 rounded-md bg-white">
+            <span className="text-xs text-gray-500">Made with</span>
+            <CloudinaryLogo />
+            <span className="text-2xl">🫰</span>
+          </div>
         </a>
         <div className="flex basis-48 justify-end space-x-6">
           {navigation.map((item) => (
