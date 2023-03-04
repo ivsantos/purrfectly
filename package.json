@@ -95,9 +95,6 @@
     "vite-tsconfig-paths": "3.6.0",
     "vitest": "0.27.2"
   },
-  "engines": {
-    "node": ">=14"
-  },
   "prisma": {
     "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts"
   },
