@@ -25,6 +25,9 @@ async function seed() {
   await prisma.adoptable.deleteMany().catch(() => {
     // no worries if it doesn't exist yet
   });
+  await prisma.cart.deleteMany().catch(() => {
+    // no worries if it doesn't exist yet
+  });
 
   const hashedPassword = await bcrypt.hash('isantosremix', 10);
 
