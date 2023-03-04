@@ -5,8 +5,6 @@ import { getProduct } from './product.server';
 export type { Cart, CartItem, Product } from '@prisma/client';
 
 export async function getShoppingCart(userId: string) {
-  console.log({ prisma });
-  console.log({ userId });
   return prisma.cart.findFirst({
     where: { id: userId },
     include: {
