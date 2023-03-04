@@ -100,7 +100,7 @@ export async function updateSingleItemFromCart(
 ) {
   return prisma.cartItem.update({
     data: {
-      quantity: cartItem.quantity,
+      quantity: quantity,
       totalPrice: Number(cartItem.price) * quantity,
     },
     where: { id: cartItem.id },
