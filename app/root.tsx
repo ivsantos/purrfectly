@@ -19,7 +19,12 @@ import { typedjson } from 'remix-typedjson';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
-import { removeFromCart } from './models/cart.server';
+import {
+  getCartItemsCount,
+  getShoppingCart,
+  getTotals,
+  removeFromCart,
+} from './models/cart.server';
 import {
   createUserSession,
   getUser,
@@ -48,15 +53,15 @@ export async function loader({ request }: LoaderArgs) {
       redirectTo: request.url,
     });
   }
-  // const cart = await getShoppingCart(userId);
+  const cart = await getShoppingCart(userId);
   let cartItemsCount: number = 0;
-  // cartItemsCount = await getCartItemsCount(userId);
-  // const cartTotals = await getTotals(userId);
+  cartItemsCount = await getCartItemsCount(userId);
+  const cartTotals = await getTotals(userId);
   return json({
     user: await getUser(request),
-    // cart,
+    cart,
     cartItemsCount,
-    // cartTotals,
+    cartTotals,
     ENV: {
       CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
     },
