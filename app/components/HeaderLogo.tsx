@@ -6,18 +6,18 @@ export default function HeaderLogo() {
           xmlns="http://www.w3.org/2000/svg"
           d="M297.491 100.645c-12.426-21.51-112.674-79.355-137.491-79.355-24.817 0-125.028 57.845-137.491 79.355-11.591 20.02-11.591 138.726 0 158.746 12.463 21.474 112.674 79.319 137.491 79.319 24.817 0 125.064-57.845 137.491-79.355 11.591-20.02 11.591-138.69 0-158.71zM309.481 93.705c-14.461-24.998-119.469-86.295-149.481-86.295-30.012 0-135.02 61.297-149.481 86.295-14.025 24.199-14.025 148.391 0 172.59 14.461 24.998 119.469 86.295 149.481 86.295 30.012 0 135.02-61.297 149.481-86.259 14.025-24.235 14.025-148.427 0-172.626zM300.906 261.353c-12.753 22.055-115.472 81.317-140.906 81.318-25.434 0-128.153-59.298-140.906-81.354-11.881-20.529-11.881-142.178 0-162.707 12.753-22.019 115.472-81.281 140.906-81.281 25.434 0 128.153 59.298 140.906 81.318 11.881 20.529 11.881 142.178 0 162.706z"
           fill="#D64926"
-          fill-rule="nonzero"
+          fillRule="nonzero"
           stroke="none"
-          stroke-width="1"
-          stroke-linecap="butt"
-          stroke-linejoin="miter"
-          stroke-miterlimit="10"
-          stroke-dasharray=""
-          stroke-dashoffset="0"
-          font-family="none"
-          font-weight="none"
-          font-size="none"
-          text-anchor="none"
+          strokeWidth={1}
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
+          strokeMiterlimit={10}
+          strokeDasharray=""
+          strokeDashoffset={0}
+          fontFamily="none"
+          fontWeight="none"
+          fontSize="none"
+          textAnchor="none"
           style={{
             mixBlendMode: 'normal',
           }}
@@ -44,12 +44,12 @@ export default function HeaderLogo() {
                   y="64.47327729230771"
                   fill="#D64926"
                   opacity="1"
-                  stroke-width="0"
+                  strokeWidth={0}
                   stroke="transparent"
-                  fill-opacity="1"
-                  data-fill-palette-color="primary"
+                  fillOpacity={1}
                   rx="1%"
                   id="o-0"
+                  data-fill-palette-color="primary"
                   data-palette-color="#D64926"
                 ></rect>
               </g>
@@ -83,8 +83,8 @@ export default function HeaderLogo() {
                                 opacity="1"
                                 transform="matrix(1,0,0,1,0,0)"
                                 fill="#ffffff"
-                                data-fill-palette-color="quaternary"
                                 id="text-0"
+                                data-fill-palette-color="quaternary"
                               ></path>
                             </svg>
                           </g>
@@ -107,12 +107,12 @@ export default function HeaderLogo() {
                       x="0"
                       y="0"
                       viewBox="1.0209975242614746 14.14699935913086 97.95899963378906 71.70599365234375"
-                      enable-background="new 0 0 100 100"
+                      enableBackground="new 0 0 100 100"
                       xmlSpace="preserve"
                       height="57.88163916083918"
                       width="79.07327101343958"
-                      data-fill-palette-color="quaternary"
                       id="icon-0"
+                      data-fill-palette-color="quaternary"
                     >
                       <g fill="#ffffff" data-fill-palette-color="quaternary">
                         <path
