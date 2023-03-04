@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Form, Link } from '@remix-run/react';
+import cartActions from '~/lib/cartActions';
 import currencyFormatter from '~/lib/currencyFormatter';
 import { Fragment } from 'react';
 
@@ -101,7 +102,7 @@ export default function Cart({ cart, cartTotals, open, toggle }: CartProps) {
                                         <button
                                           type="submit"
                                           name="action"
-                                          value="delete"
+                                          value={cartActions.removeFromCart}
                                           className="font-medium text-octonary"
                                         >
                                           Eliminar

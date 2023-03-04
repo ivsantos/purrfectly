@@ -4,6 +4,7 @@ import EmphasizeText from '~/components/EmphasizeText';
 import Groceries from '~/components/Groceries';
 import Productlist from '~/components/Productlist';
 import VideoCarousel from '~/components/VideoCarousel';
+import cartActions from '~/lib/cartActions';
 import { addToCart } from '~/models/cart.server';
 import { getProducts } from '~/models/product.server';
 import { getVideos } from '~/models/video.server';
@@ -38,7 +39,7 @@ export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const action = formData.get('action');
 
-  if (action === 'addToCart' && userId) {
+  if (action === cartActions.addToCart && userId) {
     const productId = formData.get('productId');
     await addToCart(userId, String(productId));
   } else {

@@ -1,10 +1,11 @@
+import type { CartItem, Product, User } from '@prisma/client';
 import { prisma } from '~/db.server';
 
 import { getProduct } from './product.server';
 
 export type { Cart, CartItem, Product } from '@prisma/client';
 
-export async function getShoppingCart(userId: string) {
+export async function getShoppingCart(userId: User['id']) {
   return prisma.cart.findFirst({
     where: { id: userId },
     include: {
@@ -21,7 +22,7 @@ export async function getShoppingCart(userId: string) {
   });
 }
 
-export async function getCartItemsCount(userId: string) {
+export async function getCartItemsCount(userId: User['id']) {
   const cart = await getShoppingCart(userId);
   if (!cart) {
     return 0;
@@ -29,7 +30,7 @@ export async function getCartItemsCount(userId: string) {
   return cart.cartItems.reduce((acc, item) => acc + item.quantity, 0);
 }
 
-export async function getTotals(userId: string) {
+export async function getTotals(userId: User['id']) {
   const cart = await getShoppingCart(userId);
   if (!cart) {
     return 0;
@@ -41,7 +42,7 @@ export async function getTotals(userId: string) {
   return Number(total.toFixed(2));
 }
 
-export async function addShoppingCart(userId: string) {
+export async function addShoppingCart(userId: User['id']) {
   return prisma.cart.create({
     data: {
       id: userId,
@@ -50,8 +51,8 @@ export async function addShoppingCart(userId: string) {
 }
 
 export async function addToCart(
-  userId: string,
-  productId: string,
+  userId: User['id'],
+  productId: Product['id'],
   quantity: number = 1,
 ) {
   let [cart, product] = await Promise.all([
@@ -87,20 +88,38 @@ export async function addToCart(
   });
 }
 
-export async function removeFromCart(userId: string, productId: string) {
+export async function removeSingleItemFromCart(cartItem: CartItem) {
+  return prisma.cartItem.delete({
+    where: { id: cartItem.id },
+  });
+}
+
+export async function updateSingleItemFromCart(
+  cartItem: CartItem,
+  quantity: number,
+) {
+  return prisma.cartItem.update({
+    data: {
+      quantity: cartItem.quantity,
+      totalPrice: Number(cartItem.price) * quantity,
+    },
+    where: { id: cartItem.id },
+  });
+}
+
+export async function removeFromCart(
+  userId: User['id'],
+  productId: Product['id'],
+) {
   const cart = await getShoppingCart(userId);
 
   const cartItem = cart?.cartItems.find((item) => item.productId === productId);
-  if (cartItem && cartItem.quantity > 1) {
+  if (cartItem) {
     const newQuantity = cartItem.quantity - 1;
-    const newTotalPrice = Number(cartItem.price) * newQuantity;
-    return prisma.cartItem.update({
-      data: { quantity: newQuantity, totalPrice: newTotalPrice },
-      where: { id: cartItem.id },
-    });
-  } else if (cartItem) {
-    return prisma.cartItem.delete({
-      where: { id: cartItem.id },
-    });
+    if (newQuantity > 0) {
+      return updateSingleItemFromCart(cartItem, newQuantity);
+    } else {
+      return removeSingleItemFromCart(cartItem);
+    }
   }
 }

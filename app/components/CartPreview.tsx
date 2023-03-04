@@ -5,6 +5,7 @@ import type {
   Image,
   Product,
 } from '@prisma/client';
+import cartActions from '~/lib/cartActions';
 import { useCallback, useEffect, useState } from 'react';
 import { useTypedLoaderData } from 'remix-typedjson';
 
@@ -33,10 +34,10 @@ export default function CartPreview() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener('addToCart', handleToggleCart);
+    window.addEventListener(cartActions.addToCart, handleToggleCart);
 
     return () => {
-      window.removeEventListener('addToCart', handleToggleCart);
+      window.removeEventListener(cartActions.addToCart, handleToggleCart);
     };
   }, [handleToggleCart]);
 

@@ -3,6 +3,7 @@ import type { ActionFunction, LoaderArgs } from '@remix-run/node';
 import { Form, Link } from '@remix-run/react';
 import ImageGallery from '~/components/ImageGallery';
 import Rating from '~/components/Rating';
+import cartActions from '~/lib/cartActions';
 import currencyFormatter from '~/lib/currencyFormatter';
 import { addToCart } from '~/models/cart.server';
 import { getProduct } from '~/models/product.server';
@@ -25,7 +26,7 @@ export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const action = formData.get('action');
 
-  if (action === 'addToCart' && userId) {
+  if (action === cartActions.addToCart && userId) {
     const productId = formData.get('productId');
     await addToCart(userId, String(productId));
   } else {
@@ -40,7 +41,7 @@ export default function ProductDetailsPage() {
   const { name, description, images, price, rating, category } = product;
 
   const handleAddToCart = () => {
-    window.dispatchEvent(new CustomEvent('addToCart'));
+    window.dispatchEvent(new CustomEvent(cartActions.addToCart));
   };
 
   return (
@@ -79,7 +80,7 @@ export default function ProductDetailsPage() {
                   onClick={handleAddToCart}
                   type="submit"
                   name="action"
-                  value="addToCart"
+                  value={cartActions.addToCart}
                   className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-primary py-3 px-8 text-base font-medium text-white hover:bg-primaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                 >
                   Añadir al carrito

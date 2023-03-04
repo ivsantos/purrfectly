@@ -4,6 +4,7 @@ import type {
   LoaderArgs,
   MetaFunction,
 } from '@remix-run/node';
+import { redirect } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import {
   Links,
@@ -19,6 +20,7 @@ import { typedjson } from 'remix-typedjson';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
+import cartActions from './lib/cartActions';
 import {
   getCartItemsCount,
   getShoppingCart,
@@ -73,9 +75,11 @@ export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const action = formData.get('action');
 
-  if (action === 'delete' && userId) {
+  if (action === cartActions.removeFromCart && userId) {
     const productId = formData.get('productId');
+    console.log('putisima pinga');
     await removeFromCart(userId, String(productId));
+    console.log('putisima madre');
   } else {
     throw new Response('Bad Request', { status: 400 });
   }
@@ -83,7 +87,7 @@ export const action: ActionFunction = async ({ request }) => {
   // Go back where we came from
   const referer = request.headers.get('Referer');
   if (referer) {
-    return typedjson({ redirect: referer }, { status: 303 });
+    return redirect(referer, { status: 303 });
   }
   return typedjson({ success: true });
 };
