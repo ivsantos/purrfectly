@@ -43,7 +43,7 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
       const panel =
         videoRef.current.parentElement?.querySelector('.cld-spbl-panel');
       if (panel) {
-        panel.firstElementChild?.remove();
+        panel.innerHTML = '';
         panelRef.current = panel as HTMLDivElement;
       }
     }
