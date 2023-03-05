@@ -23,7 +23,7 @@ export default function CheckoutForm() {
     await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: 'http://localhost:3000/checkout/success',
+        return_url: `${window.location.origin}/checkout/success`,
       },
     });
   };
