@@ -1,4 +1,4 @@
-import { Form, Link, NavLink } from '@remix-run/react';
+import { Form, NavLink } from '@remix-run/react';
 import { useOptionalUser } from '~/utils';
 
 import CartPreview from './CartPreview';
@@ -11,13 +11,6 @@ export default function NavActions() {
     <div className="flex h-full flex-1 items-center justify-end space-x-6">
       {user ? (
         <>
-          <Link
-            to="/purchases"
-            className="text-sm font-medium text-gray-700 hover:text-gray-800"
-          >
-            Mis compras
-          </Link>
-          <span className="h-6 w-px bg-gray-400" aria-hidden="true" />
           <Form action="/logout" method="post">
             <button
               type="submit"
