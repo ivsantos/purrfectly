@@ -3,6 +3,7 @@ interface Window {
 }
 
 interface ShoppableProduct {
+  isAdoptable?: boolean;
   productId: number;
   productName: string;
   startTime: number;
