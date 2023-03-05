@@ -11,7 +11,7 @@ export default function ItemOverlay({ shoppable }: ItemOverlayProps) {
         <Link
           key={product.publicId}
           to={product.onClick.args.url}
-          className="cld-spbl-item base-color-bg accent-color-text active"
+          className="cld-spbl-item custom base-color-bg accent-color-text active"
         >
           <span className="cld-spbl-overlay text-color-semi-bg base-color-text">
             <span className="cld-spbl-overlay-text base-color-text">
