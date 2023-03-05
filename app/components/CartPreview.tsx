@@ -5,6 +5,7 @@ import type {
   Image,
   Product,
 } from '@prisma/client';
+import { useLocation } from '@remix-run/react';
 import cartActions from '~/lib/cartActions';
 import { useCallback, useEffect, useState } from 'react';
 import { useTypedLoaderData } from 'remix-typedjson';
@@ -28,10 +29,17 @@ export interface RootLoader {
 export default function CartPreview() {
   const { cartItemsCount, cart, cartTotals } = useTypedLoaderData<RootLoader>();
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   const handleToggleCart = useCallback(() => {
     setOpen((prevOpen) => !prevOpen);
   }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/checkout') {
+      setOpen(false);
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     window.addEventListener(cartActions.addToCart, handleToggleCart);

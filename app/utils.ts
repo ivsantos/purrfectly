@@ -1,3 +1,4 @@
+import type { Cart, CartItem, Image, Product } from '@prisma/client';
 import { useMatches } from '@remix-run/react';
 import type { User } from '~/models/user.server';
 import { useMemo } from 'react';
@@ -41,6 +42,33 @@ export function useMatchesData(
     [matchingRoutes, id],
   );
   return route?.data;
+}
+
+export function isCart(cart: any): cart is Cart {
+  return cart && typeof cart === 'object' && typeof cart.id === 'string';
+}
+
+interface CartInfo {
+  cart:
+    | (Cart & {
+        cartItems: (CartItem & {
+          product: Product & {
+            images: Image[];
+          };
+        })[];
+      })
+    | null;
+  cartItemsCount: number;
+  cartTotals: number;
+}
+
+export function useCart(): CartInfo {
+  const data = useMatchesData('root');
+  if (!data || !isCart(data.cart)) {
+    throw new Error('No cart found in cart loader');
+  }
+  const { cart, cartItemsCount, cartTotals } = data as unknown as CartInfo;
+  return { cart, cartItemsCount, cartTotals };
 }
 
 function isUser(user: any): user is User {

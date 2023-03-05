@@ -166,7 +166,7 @@ export default function Cart({ cart, cartTotals, open, toggle }: CartProps) {
                             o{' '}
                             <button
                               type="button"
-                              className="font-medium text-octonary"
+                              className="font-medium text-primary"
                               onClick={toggle}
                             >
                               Continúa comprando
