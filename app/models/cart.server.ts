@@ -17,6 +17,9 @@ export async function getShoppingCart(userId: User['id']) {
             },
           },
         },
+        orderBy: {
+          createdAt: 'desc',
+        },
       },
     },
   });
