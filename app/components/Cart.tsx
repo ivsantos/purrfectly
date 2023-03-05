@@ -15,7 +15,8 @@ interface CartProps extends Partial<RootLoader> {
 export default function Cart({ cart, cartTotals, open, toggle }: CartProps) {
   const { cartItems } = cart || {};
   const transition = useTransition();
-  const isLoading = transition.state === 'submitting';
+  const isLoading =
+    transition.state === 'submitting' || transition.state === 'loading';
 
   return (
     <Transition.Root show={open} as={Fragment}>
