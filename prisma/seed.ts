@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 
 import { createAdoptables } from './createAdoptables';
 import { createProducts } from './createProducts';
+import { createVideos } from './createVideos';
 
 const prisma = new PrismaClient();
 
@@ -42,8 +43,9 @@ async function seed() {
     },
   });
 
-  await createProducts(prisma);
-  await createAdoptables(prisma);
+  const adoptables = await createAdoptables(prisma);
+  const products = await createProducts(prisma);
+  await createVideos(prisma, products, adoptables);
 
   console.log(`Database has been seeded. 🌱`);
 }

@@ -21,7 +21,7 @@ export default function ItemOverlay({ shoppable }: ItemOverlayProps) {
           <img
             className="cld-spbl-img"
             alt={product.productName}
-            src={`https://res.cloudinary.com/${window.ENV.CLOUDINARY_CLOUD_NAME}/image/upload/ar_1,c_pad,f_auto,q_auto:eco,w_auto/v1/${product.publicId}`}
+            src={`https://res.cloudinary.com/${window.ENV.CLOUDINARY_CLOUD_NAME}/image/upload/w_60,ar_1:1,c_fill/v1677347478/${product.publicId}`}
           />
         </Link>
       ))}

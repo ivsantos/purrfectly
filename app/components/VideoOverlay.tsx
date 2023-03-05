@@ -32,7 +32,7 @@ export default function VideoOverlay({ products }: VideoOverlayProps) {
                 <img
                   alt={product.productName}
                   className="cld-spbl-img cld-vp-responsive"
-                  src={`https://res.cloudinary.com/${window.ENV.CLOUDINARY_CLOUD_NAME}/image/upload/v1677347478/${product.publicId}.webp`}
+                  src={`https://res.cloudinary.com/${window.ENV.CLOUDINARY_CLOUD_NAME}/image/upload/w_120,ar_1:1,c_fill/v1677347478/${product.publicId}.webp`}
                   width={600}
                 />
               </Link>
