@@ -1,8 +1,15 @@
+import type { MetaFunction } from '@remix-run/node';
 import AdoptableList from '~/components/AdoptableList';
 import EmphasizeText from '~/components/EmphasizeText';
 import FamilyAdopt from '~/components/FamilyAdopt';
 import { getAdoptables } from '~/models/adoptable.server';
 import { typedjson, useTypedLoaderData } from 'remix-typedjson';
+
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Adoptables | Purrfectly',
+  };
+};
 
 export async function loader() {
   const adoptables = await getAdoptables();

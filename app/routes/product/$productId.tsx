@@ -1,5 +1,5 @@
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
-import type { ActionFunction, LoaderArgs } from '@remix-run/node';
+import type { ActionFunction, LoaderArgs, MetaFunction } from '@remix-run/node';
 import { Form, Link } from '@remix-run/react';
 import ImageGallery from '~/components/ImageGallery';
 import Rating from '~/components/Rating';
@@ -9,6 +9,19 @@ import { addToCart } from '~/models/cart.server';
 import { getProduct } from '~/models/product.server';
 import { getUserId } from '~/session.server';
 import { redirect, typedjson, useTypedLoaderData } from 'remix-typedjson';
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  if (!data) {
+    return {
+      title: 'Producto no encontrado',
+    };
+  }
+
+  const { product } = data;
+  return {
+    title: `${product.name} | Purrfectly`,
+  };
+};
 
 export async function loader({ params }: LoaderArgs) {
   const productId = params.productId || '';

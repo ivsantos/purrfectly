@@ -6,6 +6,12 @@ import { checkIfGuest, createUserSession, getUserId } from '~/session.server';
 import { safeRedirect, validateEmail } from '~/utils';
 import * as React from 'react';
 
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Regístrate | Purrfectly',
+  };
+};
+
 export async function loader({ request }: LoaderArgs) {
   const response = await Promise.allSettled([
     getUserId(request),
@@ -66,12 +72,6 @@ export async function action({ request }: ActionArgs) {
     redirectTo,
   });
 }
-
-export const meta: MetaFunction = () => {
-  return {
-    title: 'Regístrate',
-  };
-};
 
 export default function Join() {
   const [searchParams] = useSearchParams();

@@ -1,9 +1,22 @@
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
+import type { LoaderArgs, MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
-import type { LoaderArgs } from '@remix-run/server-runtime';
 import ImageGallery from '~/components/ImageGallery';
 import { getAdoptable } from '~/models/adoptable.server';
 import { redirect, typedjson, useTypedLoaderData } from 'remix-typedjson';
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  if (!data) {
+    return {
+      title: 'Adoptable no encontrado',
+    };
+  }
+
+  const { adoptable } = data;
+  return {
+    title: `${adoptable.name} | Purrfectly`,
+  };
+};
 
 export async function loader({ params }: LoaderArgs) {
   const adoptId = params.adoptId || '';

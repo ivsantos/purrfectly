@@ -6,6 +6,12 @@ import { checkIfGuest, createUserSession, getUserId } from '~/session.server';
 import { safeRedirect, validateEmail } from '~/utils';
 import { useEffect, useRef } from 'react';
 
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Inicia sesión | Purrfectly',
+  };
+};
+
 export async function loader({ request }: LoaderArgs) {
   const response = await Promise.allSettled([
     getUserId(request),
@@ -61,12 +67,6 @@ export async function action({ request }: ActionArgs) {
     redirectTo,
   });
 }
-
-export const meta: MetaFunction = () => {
-  return {
-    title: 'Login',
-  };
-};
 
 export default function LoginPage() {
   const [searchParams] = useSearchParams();

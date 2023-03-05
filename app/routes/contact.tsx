@@ -3,8 +3,15 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from '@heroicons/react/24/outline';
+import type { MetaFunction } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 import { typedjson } from 'remix-typedjson';
+
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Contacto | Purrfectly',
+  };
+};
 
 export async function action() {
   // Do nothing for now

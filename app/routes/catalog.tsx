@@ -1,5 +1,5 @@
 import type { Image, Product } from '@prisma/client';
-import type { ActionFunction } from '@remix-run/node';
+import type { ActionFunction, MetaFunction } from '@remix-run/node';
 import EmphasizeText from '~/components/EmphasizeText';
 import Groceries from '~/components/Groceries';
 import Productlist from '~/components/Productlist';
@@ -10,6 +10,12 @@ import { getProducts } from '~/models/product.server';
 import { getVideos } from '~/models/video.server';
 import { getUserId } from '~/session.server';
 import { typedjson, useTypedLoaderData } from 'remix-typedjson';
+
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Catálogo | Purrfectly',
+  };
+};
 
 export type ProductWithImages = (Product & {
   images: Image[];

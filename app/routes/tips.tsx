@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import CatJar from '~/components/CatJar';
 import EmphasizeText from '~/components/EmphasizeText';
@@ -5,6 +7,12 @@ import * as post1 from '~/routes/posts/post1.mdx';
 import * as post2 from '~/routes/posts/post2.mdx';
 import * as post3 from '~/routes/posts/post3.mdx';
 import { typedjson } from 'remix-typedjson';
+
+export const meta: MetaFunction = () => {
+  return {
+    title: 'Consejos y cuidados | Purrfectly',
+  };
+};
 
 function postFromModule(mod: any) {
   return {
