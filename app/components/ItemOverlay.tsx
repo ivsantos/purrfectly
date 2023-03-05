@@ -20,7 +20,7 @@ export default function ItemOverlay({ shoppable }: ItemOverlayProps) {
           </span>
           <img
             className="cld-spbl-img"
-            alt="Rascador esquina"
+            alt={product.productName}
             src={`https://res.cloudinary.com/${window.ENV.CLOUDINARY_CLOUD_NAME}/image/upload/ar_1,c_pad,f_auto,q_auto:eco,w_auto/v1/${product.publicId}`}
           />
         </Link>

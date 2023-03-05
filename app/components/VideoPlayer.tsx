@@ -42,10 +42,12 @@ const VideoPlayer = ({ id, source, options }: VideoPlayerProps) => {
       // Hack to have SPA navigation working with Cloudinary player.
       const panel =
         videoRef.current.parentElement?.querySelector('.cld-spbl-panel');
-      if (panel) {
-        panel.innerHTML = '';
-        panelRef.current = panel as HTMLDivElement;
-      }
+      const panelItems =
+        panel?.querySelectorAll<HTMLAnchorElement>('.cld-spbl-item');
+      panelItems?.forEach((item) => {
+        item.style.display = 'none';
+      });
+      panelRef.current = panel as HTMLDivElement;
     }
 
     async function loadCloudinary() {
