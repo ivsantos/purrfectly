@@ -20,7 +20,7 @@ export const links: LinksFunction = () => {
 export default function Posts() {
   return (
     <>
-      <p className="flex items-center text-sm font-medium text-primary">
+      <p className="flex h-24 items-center text-sm font-medium text-primary">
         <Link to="/tips" className="mt-8 ml-8 flex">
           <ChevronLeftIcon className="mr-2 h-5 w-5" />
           <span>Volver a consejos y cuidados</span>
