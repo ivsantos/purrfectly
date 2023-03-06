@@ -112,7 +112,7 @@ export default function App() {
           />
         )}
       </head>
-      <body className="grid min-h-screen grid-rows-content">
+      <body className="grid min-h-screen">
         <Header />
         <Outlet />
         <Footer />

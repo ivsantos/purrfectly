@@ -33,9 +33,6 @@ module.exports = {
       gridTemplateColumns: {
         card: 'repeat(auto-fit, minmax(300px, 1fr))',
       },
-      gridTemplateRows: {
-        content: 'auto 1fr auto',
-      },
     },
   },
   plugins: [require('@tailwindcss/line-clamp')],

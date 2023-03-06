@@ -84,7 +84,7 @@ export default function LoginPage() {
   }, [actionData]);
 
   return (
-    <div className="mt-10 flex min-h-full flex-col justify-center">
+    <div className="mt-10 flex min-h-[calc(100vh-110px)] flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>

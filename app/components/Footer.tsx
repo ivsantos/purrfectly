@@ -31,7 +31,7 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer className="h-[110px] bg-white">
+    <footer className="mt-auto h-[110px] bg-white">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-8">
         <div className="basis-48 justify-start">
           <p className="text-center text-xs leading-5 text-gray-500">
