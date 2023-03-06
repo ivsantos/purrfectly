@@ -89,7 +89,7 @@ export default function Join() {
   }, [actionData]);
 
   return (
-    <div className="mt-10 flex min-h-[calc(100vh-110px)] flex-col justify-center">
+    <div className="mt-10 flex min-h-[calc(100vh-175px)] flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>
