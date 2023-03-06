@@ -27,7 +27,9 @@ export default function VideoOverlay({ products }: VideoOverlayProps) {
                 <span className="vjs-control-text" aria-live="polite" />
                 <span
                   className="cld-spbl-overlay text-color-semi-bg base-color-text"
-                  title={`Ir al producto ${product.productName}`}
+                  title={`Ir al ${
+                    product.isAdoptable ? 'adoptable' : 'producto'
+                  } ${product.productName}`}
                 />
                 <img
                   alt={product.productName}
