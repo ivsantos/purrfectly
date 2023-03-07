@@ -64,6 +64,17 @@ export default function CheckoutForm() {
           <p>{currencyFormatter(cartTotals!)}</p>
         </div>
       </ul>
+      <div className="mb-4 flex gap-2">
+        <p className="rounded-md bg-primary text-center text-white">
+          Entorno de prueba de pagos
+        </p>
+        <p className="rounded-md bg-primary text-center text-white">
+          Tarjeta de prueba: 4242424242424242
+        </p>
+        <p className="rounded-md bg-primary text-center text-white">
+          CVV: Cualquier número de 3 dígitos
+        </p>
+      </div>
       <Form method="post" onSubmit={handleChange}>
         <PaymentElement />
         <button
