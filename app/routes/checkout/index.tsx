@@ -66,10 +66,10 @@ export default function CheckoutForm() {
       </ul>
       <div className="mb-4 flex gap-2">
         <p className="rounded-md bg-primary text-center text-white">
-          Entorno de prueba de pagos
+          Tarjeta de prueba: 4242424242424242
         </p>
         <p className="rounded-md bg-primary text-center text-white">
-          Tarjeta de prueba: 4242424242424242
+          Fecha: Cualquiera superior a hoy. (Ej: 12/34)
         </p>
         <p className="rounded-md bg-primary text-center text-white">
           CVV: Cualquier número de 3 dígitos
