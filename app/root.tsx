@@ -77,9 +77,7 @@ export const action: ActionFunction = async ({ request }) => {
 
   if (action === cartActions.removeFromCart && userId) {
     const productId = formData.get('productId');
-    console.log('putisima pinga');
     await removeFromCart(userId, String(productId));
-    console.log('putisima madre');
   } else {
     throw new Response('Bad Request', { status: 400 });
   }
